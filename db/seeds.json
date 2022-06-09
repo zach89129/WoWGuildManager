@@ -1,0 +1,82 @@
+[
+    {
+      "name": "Executey",
+      "class": "Warrior",
+      "specialization": "Arms",
+      "profession_1": "Blacksmithing",
+      "recipe_1": [""],
+      "profession_2": "Engineering",
+      "recipe_2": [""],
+      "items": [{
+          "name": "Apolyon, the Soul-Render",
+          "link": "https://tbc.wowhead.com/item=34247/apolyon-the-soul-render",
+          "boss": "Kil'jaeden",
+          "type": {
+            "slot": "2H Sword",
+            "material": ""
+          },
+          "priority": 1
+        },
+        {
+        "name": "Band of Ruinous Delight",
+        "link": "https://tbc.wowhead.com/item=34189/band-of-ruinous-delight",
+        "boss": "Eredar Twins",
+        "type": {
+            "slot": "Ring",
+            "material": ""
+          },
+        "priority": 2
+        },
+        {
+        "name": "Blackened Naaru Sliver",
+        "link": "https://tbc.wowhead.com/item=34427/blackened-naaru-sliver",
+        "boss": "M'uru",
+        "type": {
+            "slot": "Trinket",
+            "material": ""
+        },
+        "priority": 3
+        }
+      ]
+    },
+    {
+        "name": "Mindflaÿ",
+        "class": "Priest",
+        "specialization": "Discipline",
+        "profession_1": "Alchemy (Potion Master)",
+        "recipe_1": ["Haste Potion", "Destruction Potion", "Insane Strength Potion"],
+        "profession_2": "Tailoring",
+        "recipe_2": ["Spellcloth", "Primal Mooncloth", "Shadowcloth"],
+        "items": [{
+            "name": "Earring of Soulful Meditation",
+            "link": "https://tbc.wowhead.com/item=30665/earring-of-soulful-meditation",
+            "boss": "The Lurker Below",
+            "type": {
+              "slot": "Trinket",
+              "material": ""
+            },
+            "priority": 1
+          },
+          {
+          "name": "Brutal Gladiator's Salvation",
+          "link": "https://tbc.wowhead.com/item=35082/brutal-gladiators-salvation",
+          "boss": "PVP",
+          "type": {
+              "slot": "1H Mace",
+              "material": ""
+            },
+          "priority": 2
+          },
+          {
+          "name": "Brutal Gladiator's Mooncloth Mantle",
+          "link": "https://tbc.wowhead.com/item=35056/brutal-gladiators-mooncloth-mantle",
+          "boss": "PVP",
+          "type": {
+              "slot": "Shoulder",
+              "material": "Cloth"
+          },
+          "priority": 3
+          }
+        ]
+      }
+]
