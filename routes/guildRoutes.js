@@ -11,9 +11,13 @@ router.get('/guild/new', controller.loadNewCharacter)
 
 router.post('/guild', controller.createNewChar )
 
-router.get('/characters/:id', /*load character page */)
+router.get('/characters/:id', controller.loadCharPage)
 
-router.get('/characters/:id/editWishlist', /*load edit items*/) 
+router.get('/characters/:id/newItem', controller.loadNewItemPage)
+
+router.post('/characters/:id', controller.postNewItem)
+
+router.get('/characters/:id/editWishlist', controller.loadEditItemsPage)
 
 router.get('/characters/:id/editCharacter', /*load edit character page */) 
 

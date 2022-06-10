@@ -7,6 +7,55 @@
     <title>user name</title>
 </head>
 <body>
-    
+    <div>
+        <div><h1><%= singleChar.name  %> </h1></div>
+        <br>
+        <div><h5><%= singleChar.class %> </h5></div>
+        <br>
+        <div><h5><%= singleChar.specialization %> </h5></div>
+        <br>
+        <div><h3>Professions</h3></div>
+        <div><h5><%= singleChar.profession_1 %> </h5></div>
+                <div><h3>Recipes:</h3></div>
+                <div>
+                    <% singleChar.recipe_1.forEach((recipe) => { %> 
+                    <ul>
+                        <li><%= recipe %> </li>
+                    </ul>
+                    <% }) %> 
+                </div>
+        <div><h5><%= singleChar.profession_2 %> </h5></div>
+                <div><h3>Recipes:</h3></div>
+                <div>
+                    
+                    <% singleChar.recipe_2.forEach((recipe)=>{ %> 
+                    <ul>    
+                        <li><%= recipe %> </li>
+                    </ul>
+                    <% }) %> 
+                </div>
+
+ <div>
+        <h3>Loot Wishlist</h3>
+        
+         <% singleChar.items.forEach((item) => { %> 
+        <div>
+            <ul>
+                <li><%= item.priority %> </li>
+                <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= item.name %> </a></li>
+                <li><%= item.boss %> </li>
+                <li><%= item.type.slot %> </li>
+                
+            </ul>
+        </div>
+        <% }) %> 
+        </div>
+
+        <% if(singleChar.items.length < 3){ %> 
+        <a href="/characters/<%= singleChar._id %>/newItem"><button>Add new item!</button></a>
+        <% }%>
+
+
+    </div>
 </body>
 </html>

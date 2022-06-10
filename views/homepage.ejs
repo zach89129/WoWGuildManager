@@ -7,23 +7,29 @@
     <title>Guild Members</title>
 </head>
 <body>
-    
+    <ul class="right">
+        <li>
+        <% if (user) { %>
+            <a href="/logout"><i class="material-icons left"></i>Log Out</a>
+        <% } else { %>
+            <a href="/auth/google"><i class="material-icons left">🔑 </i>Login with Google</a>
+        <% } %>
+        </li>
     <table>
         <% characters.forEach((character) => { %>
             <tr>
-                <td><a href="/character/<%= character._id  %> "><%= character.name %></a></td>
+                <td><a href="/characters/<%= character._id  %> "><%= character.name %></a></td>
                 <td><%= character.class%></td>
                 <td><%= character.specialization%></td>
                 <td>Professions</td>
                 <td><%= character.profession_1 %></td>
                 <td><%= character.profession_2 %></td>
-               
-
+                <% character.items.forEach((item) =>{ %>
+                    <td><%= item.name  %> </td>
+                    <% }) %> 
             </tr>
             <%})%>
-            <% character.items.forEach((item) =>{ %>
-                <td><%= item.name  %> </td>
-                <% }) %> 
+           
         </table>
 
         <a href="/guild/new"><button>Add new character!</button></a>

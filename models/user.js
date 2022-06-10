@@ -5,7 +5,8 @@ const Schema = mongoose.Schema; // create a shorthand for the mongoose Schema co
 
 const UserSchema = new mongoose.Schema({
     username: String,
-    password: String
+    password: String,
+    googleId: String
 });
 
 

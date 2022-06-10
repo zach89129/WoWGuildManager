@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <h1>Add a new Wishlist Item</h1>
+
+    <div>
+        <form action="/characters/<%= singleChar._id %>" method="post">
+            <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="link" name="link">
+            <input type="text" placeholder="boss" name="boss">
+            <input type="text" placeholder="slot" name="slot">
+            <input type="text" placeholder="material" name="material" value="">
+            <input type="number" placeholder="priority" name="priority">
+            <button type="submit" >Submit</button>
+    </div>
+
+</body>
+</html>

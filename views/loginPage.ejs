@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <ul class="right">
+        <li>
+        <% if (user) { %>
+            <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+        <% } else { %>
+            <a href="/auth/google"><i class="material-icons left">🔑 </i>Login with Google</a>
+        <% } %>
+        </li>
+    </ul>
 </body>
 </html>
