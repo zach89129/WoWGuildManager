@@ -15,7 +15,7 @@ const ItemSchema = new Schema(
     priority: {
         type: Number,
         min: [1, 'That"s not an option!'],
-        max: [3, 'You can only have 3 items!!']
+        max: [3, 'You can only have 3 items!!'],
     },
   }
 );

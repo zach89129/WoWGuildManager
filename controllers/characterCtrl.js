@@ -34,7 +34,6 @@ const createNewUser = (req,res) => {
 const loadHomepage = (req,res) => {
     Character.find({})
   .then((characters)=>{
-      console.log("this is the real one", characters)
       res.render('homepage', {characters} )
   })
 }
@@ -65,81 +64,71 @@ const loadCharPage = (req,res) => {
     })
 }
 
-const loadNewItemPage = (req,res) => {
-    Character.findById({_id : req.params.id})
-    .then((singleChar)=>{
-        res.render('newItemPage', {singleChar})
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
-
-const postNewItem = (req,res) => {
-    Character.findById({_id : req.params.id})
-    .then((singleChar)=>{
-        singleChar.items.push(req.body)
-        singleChar.save()
-        res.redirect(`/characters/${req.params.id}`)
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
-
-// const deleteItem = (req, res) =>{
+// const loadNewItemPage = (req,res) => {
 //     Character.findById({_id : req.params.id})
 //     .then((singleChar)=>{
-//         singleChar.items.splice()
-//         singleChar.save()
+//         res.render('newItemPage', {singleChar})
 //     })
 //     .catch(err => {
 //         console.log(err)
 //     })
 // }
 
-const loadEditItemsPage = (req,res) => {
+const postNewItem = (req,res) => {
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
-        let items = singleChar.items
-        res.render('editItemsPage', {items})
+        let prioArr = singleChar.items.map((item)=>{
+            return item.priority
+        })
+
+        if (prioArr.includes(parseInt(req.body.priority))){
+            res.redirect(`/characters/${req.params.id}/editWishlist?invalid=true`)
+            res.end()
+        } else {
+            singleChar.items.push(req.body)
+            singleChar.items = singleChar.items.sort((a, b) => parseInt(a.priority) - parseInt(b.priority));
+            singleChar.save()
+            setTimeout(() => {
+                res.redirect(`/characters/${req.params.id}/editWishlist`)
+              }, "650")
+        }
     })
     .catch(err => {
         console.log(err)
     })
 }
-    // //DELETE BUTTONS
-    //         const delete_1 = ()=>{
-    //             Character.findById({_id : req.params.id})
-    //             .then((singleChar)=>{
-    //                 singleChar.items.splice(0, 1)
-    //                 singleChar.save()
-    //                 res.redirect(`/characters/${req.params.id}/editWishlist`)
-    //             })
-    //             .catch(err => {
-    //                 console.log(err)
-    //             })
-    //         }
-    //         const delete_2 = ()=>{
-    //             Character.findById({_id : req.params.id})
-    //             .then((singleChar)=>{
-    //                 singleChar.items.splice(1, 1)
-    //                 singleChar.save()
-    //             })
-    //             .catch(err => {
-    //                 console.log(err)
-    //             })
-    //         }
-    //         const delete_3 = ()=>{
-    //             Character.findById({_id : req.params.id})
-    //             .then((singleChar)=>{
-    //                 singleChar.items.splice(2, 1)
-    //                 singleChar.save()
-    //             })
-    //             .catch(err => {
-    //                 console.log(err)
-    //             })
-    //         }
+
+const deleteOneItem = (req, res) =>{
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+            let index = parseInt(req.body.wishlistIndex)
+            singleChar.items.splice(index, 1)
+            singleChar.save()
+    })
+    .then(()=>{
+        setTimeout(() => {
+            res.redirect(`/characters/${req.params.id}/editWishlist`)
+          }, "650")
+    })
+    
+    
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+const loadEditItemsPage = (req,res) => {
+    let invalid = req.url.split("=")[1]
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+        let items = singleChar.items
+        res.render('editItemsPage', {singleChar, items, invalid})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 
 module.exports = {
     loadUserLogin,
@@ -149,11 +138,8 @@ module.exports = {
     loadNewCharacter,
     createNewChar,
     loadCharPage,
-    loadNewItemPage,
     postNewItem,
     loadEditItemsPage,
-    // delete_1,
-    // delete_2,
-    // delete_3
+    deleteOneItem
 
 }

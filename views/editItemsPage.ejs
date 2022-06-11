@@ -4,24 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Wishlist</title>
 </head>
 <body>
+    <form action="http://localhost:3000/characters/<%= singleChar._id  %> ">
+        <input type="submit" value="Go Back"/>
+    </form>
+    
+    
+    <div>
+        <h3>Loot Wishlist</h3>
+        
+         <% singleChar.items.forEach((item, i) => { %> 
+        <div>
+            <ul>
+                <li><%= item.priority %> </li>
+                <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= item.name %> </a></li>
+                <li><%= item.boss %> </li>
+                <li><%= item.type.slot %> </li>
+                <form action="/characters/<%= singleChar._id %>/editWishlist?_method=DELETE" method="POST">
+                    <input type="hidden" value="<%=i%>" name="wishlistIndex">
+                <input type="submit" value="Delete item"/>
+                </form> 
+            </ul>
+        </div>
+        <% }) %> 
+        </div>
+    
+    
+    
+        
+        <div>
+            <% if(singleChar.items.length  < 3 ) {%> 
+                <h1>Add a new Wishlist Item</h1>
+            <form action="/characters/<%= singleChar._id %>/editWishlist" method="post">
+                <input type="text" placeholder="name" name="name">
+                <input type="text" placeholder="link" name="link">
+                <input type="text" placeholder="boss" name="boss">
+                <input type="text" placeholder="slot" name="slot">
+                <input type="text" placeholder="material" name="material" value="">
+                <input type="number" placeholder="priority" name="priority">
+                <button type="submit" >Submit</button>
 
+                <% } %> 
 
-
-
-    this is edit items page
-
-    <div><%= items[0].name %> <button onclick="delete_1()">>Delete</button></div> 
-    <div><%= items[1].name %> <button onclick="delete_2()">Delete</button></div>
-    <div><%= items[2].name %> <button onclick="delete_3()">Delete</button></div>
-
-
-
-
-
-
-
+                <% if (invalid){ %>
+                    <div style="color: red;">You've already set that priority!</div> 
+                    <% } %> 
+        </div>
+    
+    
+    
+    
+    
+   
 </body>
 </html>
