@@ -2,12 +2,16 @@
 // Require Mongoose:
 const mongoose = require('mongoose')
 const db = mongoose.connection
-
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+  });
 
 //connect to database
-mongoose.connect('mongodb://localhost:27017/wow-guild-manager', {
-    useNewUrlParser: true
-})
+// mongoose.connect('mongodb://localhost:27017/wow-guild-manager', {
+//     useNewUrlParser: true
+// })
 
 
 
