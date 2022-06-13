@@ -54,7 +54,7 @@ const createNewChar = (req,res) => {
     Character.create(req.body,(err, character)=>{
         if(err) return err
         character.owner = req.user._id
-      
+        character.materialReq = req.body
         character.save((err)=> {
             if(err) return err
             res.redirect('/guild')
@@ -166,6 +166,7 @@ const loadEditItemsPage = (req,res) => {
 const loadMatReqPage = (req,res) => {
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
+        console.log(singleChar.materialReq)
         res.render('matRequestForm', {singleChar})
     })
     .catch(err => {
@@ -177,7 +178,9 @@ const postMatReq = (req,res) => {
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
         singleChar.materialReq = req.body
-        singleChar.save()
+        singleChar.save((err)=>{
+            res.redirect(`/characters/${req.params.id}`)
+        })
     })
 }
 
@@ -195,14 +198,16 @@ const postMatEdit = (req,res) => {
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
         singleChar.materialReq = req.body
-        singleChar.save()
+        singleChar.save((err)=>{
+            res.redirect(`/characters/${req.params.id}`)
+        })
     })
 }
 
 const loadAllMatReq = (req,res) => {
     Character.find({})
-    .then((allChar)=>{
-        res.render('allRequests', {allChar})
+    .then((characters)=>{
+        res.render('allRequests', {characters})
     })
 }
 

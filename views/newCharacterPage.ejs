@@ -7,7 +7,9 @@
     <title>Create Character</title>
 </head>
 <body>
-    
+    <form action="http://localhost:3000/guild/">
+        <input type="submit" value="Go Back"/>
+    </form>
 
     <h1>Create a new Character!</h1>
 
@@ -20,6 +22,11 @@
             <input type="text" placeholder="recipes" name="recipe_1" value="">
             <input type="text" placeholder="profession 2" name="profession_2">
             <input type="text" placeholder="recipes" name="recipe_2" value="">
+            <input type="hidden" placeholder="Gem Color" name="gemColor_1" value="">
+            <input type="hidden" name="gemAmt_1" value="0">
+            <input type="hidden" placeholder="Gem Color" name="gemColor_2" value="">
+            <input type="hidden" name="gemAmt_2" value="0">
+            <input type="hidden" name="sunmoteAmt" value="0">
             <button type="submit" >Submit</button>
     </div>
 

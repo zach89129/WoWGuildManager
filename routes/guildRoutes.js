@@ -37,7 +37,7 @@ router.get('/characters/:id/materialedit', controller.loadMatEditPage)
 
 router.put('/characters/:id', controller.postMatEdit)
 
-router.get("/characters/matrequests", controller.loadAllMatReq)
+router.get("/guild/matrequests", controller.loadAllMatReq)
 
 
 module.exports = router
