@@ -99,8 +99,10 @@ const deleteChar = (req,res)=>{
 
 const loadCharPage = (req,res) => {
     Character.findById({_id : req.params.id})
+    .populate('owner')
     .then((singleChar)=>{
-        res.render('characterPage', {singleChar})
+        console.log(singleChar.owner._id, req.user._id)
+        res.render('characterPage', {singleChar, deletable : singleChar.owner._id.equals(req.user._id)})
     })
     .catch(err => {
         console.log(err)
@@ -163,26 +165,26 @@ const loadEditItemsPage = (req,res) => {
     })
 }
 
-const loadMatReqPage = (req,res) => {
-    Character.findById({_id : req.params.id})
-    .then((singleChar)=>{
-        console.log(singleChar.materialReq)
-        res.render('matRequestForm', {singleChar})
-    })
-    .catch(err => {
-        console.log(err)
-    })
-}
+// const loadMatReqPage = (req,res) => {
+//     Character.findById({_id : req.params.id})
+//     .then((singleChar)=>{
+//         console.log(singleChar.materialReq)
+//         res.render('matRequestForm', {singleChar})
+//     })
+//     .catch(err => {
+//         console.log(err)
+//     })
+// }
 
-const postMatReq = (req,res) => {
-    Character.findById({_id : req.params.id})
-    .then((singleChar)=>{
-        singleChar.materialReq = req.body
-        singleChar.save((err)=>{
-            res.redirect(`/characters/${req.params.id}`)
-        })
-    })
-}
+// const postMatReq = (req,res) => {
+//     Character.findById({_id : req.params.id})
+//     .then((singleChar)=>{
+//         singleChar.materialReq = req.body
+//         singleChar.save((err)=>{
+//             res.redirect(`/characters/${req.params.id}`)
+//         })
+//     })
+// }
 
 const loadMatEditPage = (req,res) => {
     Character.findById({_id : req.params.id})
@@ -226,8 +228,8 @@ module.exports = {
     editCharacter,
     deleteChar,
     loadMatEditPage,
-    loadMatReqPage,
-    postMatReq,
+    // loadMatReqPage,
+    // postMatReq,
     postMatEdit,
     loadAllMatReq
 }

@@ -38,7 +38,9 @@
                     </ul>
                     <% }) %> 
                 </div>
+                <% if(deletable){ %> 
                 <a href="/characters/<%= singleChar._id %>/editCharacter"><button>Edit Character!</button></a>
+                <% } %> 
 
  <div>
         <h3>Loot Wishlist</h3>
@@ -56,19 +58,20 @@
         <% }) %> 
         </div>
 
-       
+        <% if(deletable){ %> 
         <a href="/characters/<%= singleChar._id %>/editWishlist"><button>Edit Wishlist!</button></a>
-
-
-        <% if (singleChar.materialReq){ %> 
-        <a href="/characters/<%= singleChar._id %>/materialedit"><button>Material Request Edit</button></a>
-        <% }else{ %> 
-        <a href="/characters/<%= singleChar._id %>/materialrequest"><button>Material Request</button></a>
         <% } %> 
 
+        <% if(deletable){ %> 
+        <a href="/characters/<%= singleChar._id %>/materialedit"><button>Material Request Edit</button></a>
+        <% } %> 
+
+
+        <% if(deletable){ %> 
         <form action="/characters/<%= singleChar._id %>?_method=DELETE" method="POST">
             <input type="submit" value="Delete Character"/>
         </form>
+        <% } %> 
     </div>
 </body>
 </html>

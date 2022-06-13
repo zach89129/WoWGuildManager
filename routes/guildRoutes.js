@@ -29,9 +29,9 @@ router.delete('/characters/:id/editWishlist', controller.deleteOneItem)
 
 //materials routes
 
-router.get('/characters/:id/materialrequest', controller.loadMatReqPage)
+// router.get('/characters/:id/materialrequest', controller.loadMatReqPage)
 
-router.post('/characters/:id', controller.postMatReq)
+// router.post('/characters/:id', controller.postMatReq)
 
 router.get('/characters/:id/materialedit', controller.loadMatEditPage)
 
