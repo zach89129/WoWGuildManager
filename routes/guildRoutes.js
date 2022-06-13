@@ -3,7 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/characterCtrl')
 
 
-
+//character routes
 
 router.get('/guild', controller.loadHomepage)
 
@@ -13,7 +13,13 @@ router.post('/guild', controller.createNewChar )
 
 router.get('/characters/:id', controller.loadCharPage)
 
-// router.get('/characters/:id/newItem', controller.loadNewItemPage)
+router.get('/characters/:id/editCharacter', controller.loadEditChar) 
+
+router.put("/characters/:id", controller.editCharacter)
+
+router.delete("/characters/:id", controller.deleteChar)
+
+//wishlist routes
 
 router.get('/characters/:id/editWishlist', controller.loadEditItemsPage)
 
@@ -21,21 +27,17 @@ router.post('/characters/:id/editWishlist', controller.postNewItem)
 
 router.delete('/characters/:id/editWishlist', controller.deleteOneItem)
 
-router.get('/characters/:id/editCharacter', /*load edit character page */) 
+//materials routes
 
-router.put("/characters/:id", /* edit character page */)
+router.get('/characters/:id/materialrequest', controller.loadMatReqPage)
 
-router.delete("/characters/:id", /*delete character page */)
+router.post('/characters/:id', controller.postMatReq)
 
-// router.get('/guild/:id/materialrequest', /*load new material request page */)
+router.get('/characters/:id/materialedit', controller.loadMatEditPage)
 
-// router.post('/guild/:id', /*posting material request */)
+router.put('/characters/:id', controller.postMatEdit)
 
-// router.get('/guild/:id/materialedit', /*load material request edit page */)
-
-// router.put('/guild/:id', /*posting edit request */)
-
-// router.get("/guild/materialrequests", /*load material request page showing all */)
+router.get("/characters/matrequests", controller.loadAllMatReq)
 
 
 module.exports = router

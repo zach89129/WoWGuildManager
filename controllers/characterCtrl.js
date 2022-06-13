@@ -43,15 +43,58 @@ const loadNewCharacter = (req,res) => {
 }
 
 const createNewChar = (req,res) => {
+    //prepping recipes
+    const str1 = req.body.recipe_1
+    const recipes1arr = str1.split(",")
+    const str2 = req.body.recipe_2
+    const recipes2arr = str2.split(",")
+    req.body.recipe_1 = recipes1arr
+    req.body.recipe_2 = recipes2arr
+
     Character.create(req.body,(err, character)=>{
         if(err) return err
         character.owner = req.user._id
+      
         character.save((err)=> {
             if(err) return err
             res.redirect('/guild')
         })
     })
 }
+
+const loadEditChar = (req, res)=>{
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+        res.render('editCharacterPage', {singleChar})
+    }) 
+};
+
+const editCharacter = (req,res)=>{
+    const str1 = req.body.recipe_1
+    const recipes1arr = str1.split(",")
+    const str2 = req.body.recipe_2
+    const recipes2arr = str2.split(",")
+    req.body.recipe_1 = recipes1arr
+    req.body.recipe_2 = recipes2arr
+
+    Character.findOneAndUpdate({_id : req.params.id}, req.body)
+    .then(()=>{
+        Character.find({})
+        .then(()=>{
+            res.redirect(`/characters/${req.params.id}`)
+        })
+    })
+};
+
+const deleteChar = (req,res)=>{
+    Character.findOneAndDelete({_id : req.params.id})
+    .then(()=>{
+        Character.find({})
+        .then(()=>{
+            res.redirect(`/guild`)
+        })
+    })
+};
 
 
 const loadCharPage = (req,res) => {
@@ -64,15 +107,6 @@ const loadCharPage = (req,res) => {
     })
 }
 
-// const loadNewItemPage = (req,res) => {
-//     Character.findById({_id : req.params.id})
-//     .then((singleChar)=>{
-//         res.render('newItemPage', {singleChar})
-//     })
-//     .catch(err => {
-//         console.log(err)
-//     })
-// }
 
 const postNewItem = (req,res) => {
     Character.findById({_id : req.params.id})
@@ -129,6 +163,48 @@ const loadEditItemsPage = (req,res) => {
     })
 }
 
+const loadMatReqPage = (req,res) => {
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+        res.render('matRequestForm', {singleChar})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+const postMatReq = (req,res) => {
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+        singleChar.materialReq = req.body
+        singleChar.save()
+    })
+}
+
+const loadMatEditPage = (req,res) => {
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+        res.render('editMatRequest', {singleChar})
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
+const postMatEdit = (req,res) => {
+    Character.findById({_id : req.params.id})
+    .then((singleChar)=>{
+        singleChar.materialReq = req.body
+        singleChar.save()
+    })
+}
+
+const loadAllMatReq = (req,res) => {
+    Character.find({})
+    .then((allChar)=>{
+        res.render('allRequests', {allChar})
+    })
+}
 
 module.exports = {
     loadUserLogin,
@@ -140,6 +216,13 @@ module.exports = {
     loadCharPage,
     postNewItem,
     loadEditItemsPage,
-    deleteOneItem
-
+    deleteOneItem,
+    loadEditChar,
+    editCharacter,
+    deleteChar,
+    loadMatEditPage,
+    loadMatReqPage,
+    postMatReq,
+    postMatEdit,
+    loadAllMatReq
 }

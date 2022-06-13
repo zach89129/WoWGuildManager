@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user name</title>
+    <title></title>
 </head>
 <body>
+    <form action="http://localhost:3000/Characters/<%= singleChar._id  %> ">
+        <input type="submit" value="Go Back"/>
+    </form>
     
+    <h1>Edit Character</h1>
+    <form action="/characters/<%= singleChar._id %>?_method=PUT" method="POST">
+        <input type="text" placeholder="name" name="name">
+            <input type="text" placeholder="class" name="class">
+            <input type="text" placeholder="specialization" name="specialization">
+            <input type="text" placeholder="profession 1" name="profession_1">
+            <input type="text" placeholder="recipes" name="recipe_1" value="">
+            <input type="text" placeholder="profession 2" name="profession_2">
+            <input type="text" placeholder="recipes" name="recipe_2" value="">
+        <button type="submit" >Submit</button>
+    </form>
+
+
 </body>
 </html>

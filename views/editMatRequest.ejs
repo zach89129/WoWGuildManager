@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Material Request</title>
+</head>
+<body>
+    <h1>Edit Material Request</h1>
+
+    <div>
+        <form action="/character/<% singleChar._id %>?_method=PUT" method="post">
+            <input type="text" placeholder="Gem Color" name="gemColor_1" value="">
+            <input type="number" name="gemAmt_1" value="0">
+            <input type="text" placeholder="Gem Color" name="gemColor_2" value="">
+            <input type="number" name="gemAmt_2" value="0">
+            <label for="sunmoteAmt">Sunmotes:</label>
+            <input type="number" name="sunmoteAmt" value="0">
+            <button type="submit" >Submit</button>
+    </div>
+</body>
+</html>
