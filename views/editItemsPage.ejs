@@ -19,9 +19,9 @@
         <div>
             <ul>
                 <li><%= item.priority %> </li>
-                <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= item.name %> </a></li>
-                <li><%= item.boss %> </li>
-                <li><%= item.type.slot %> </li>
+                <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= capitalize(item.name) %> </a></li>
+                <li><%= capitalize(item.boss) %> </li>
+                <li><%= capitalize(item.slot) %> </li>
                 <form action="/characters/<%= singleChar._id %>/editWishlist?_method=DELETE" method="POST">
                     <input type="hidden" value="<%=i%>" name="wishlistIndex">
                 <input type="submit" value="Delete item"/>

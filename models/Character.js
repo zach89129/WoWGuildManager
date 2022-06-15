@@ -8,10 +8,8 @@ const ItemSchema = new Schema(
     name: String,
     link: String,
     boss: String,
-    type: {
-        slot: String,
-        material: String,
-    },
+    slot: String,
+    material: String,
     priority: {
         type: Number,
         min: [1, 'That"s not an option!'],
@@ -49,7 +47,6 @@ const CharacterSchema = new Schema(
     },
   }
 );
-
 
 
 const Character = mongoose.model("Character", CharacterSchema);

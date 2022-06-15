@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { capitalize } = require('underscore');
 const router = express.Router();
 const controller = require('../controllers/characterCtrl')
 
@@ -35,7 +36,7 @@ router.delete('/characters/:id/editWishlist', controller.deleteOneItem)
 
 router.get('/characters/:id/materialedit', controller.loadMatEditPage)
 
-router.put('/characters/:id', controller.postMatEdit)
+router.put('/characters/:id/matReq', controller.postMatEdit)
 
 router.get("/guild/matrequests", controller.loadAllMatReq)
 

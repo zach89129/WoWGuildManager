@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    flex-direction: row;
+    /* font-family: 'Bilbo Swash Caps', cursive; */
+    width: 100%;
+    height: 100%;
+         
+        /*source: i am not englishman // stackoverflow */
+        /* Background image is centered vertically and horizontally at all times */
+        background-position: center center;
+
+        /* Background image doesn't tile */
+        background-repeat: no-repeat;
+
+        /* Background image is fixed in the viewport so that it doesn't move when 
+        the content's height is greater than the image's height */
+        background-attachment: fixed;
+
+        /* This is what makes the background image rescale based
+        on the container's size */
+        background-size: cover;
+
+        /* Location of the image */
+        background-image:url('https://wallpaperaccess.com/full/2796640.jpg') ;
+
+
+}
+
+.wholeCharContainer {
+    display: flex;
+    flex-direction: column;
+    border: 2px, black;
+}
+
+.charDemosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    align-content: space-between;
+}
+
+.charName {
+    font-size: 100px;
+    margin: 0px;
+    padding: 0px;   
+}
+.charClass {
+
+}
+.charSpec {
+    
+}
+
+.profContainer {
+    padding-top: 65px;
+}
+
+.profTitle {
+    font-size: 65px;
+    text-decoration: underline overline 2px;
+}
+
+.professions {
+    font-size: 50px;
+    padding-left: 8px;
+    padding-top: 5px;
+    text-decoration: underline;
+}
+.recipeBox {
+    padding-left: 20px;
+    padding-top: 12px;
+    padding-bottom: 20px;
+}
+
+.recipes {
+    font-size: 30px;
+    margin: none;
+}
+
+.recipeUl {
+    margin: none;
+    padding: none;
+}
+
+ul {
+    margin: 2px;
+}
+
+ul .itemList {
+    padding-bottom: 5px;
+}

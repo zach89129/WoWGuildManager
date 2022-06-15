@@ -12,13 +12,14 @@
     </form>
     
     <h1>Edit Character</h1>
+    <div>**Please enter recipes with a "," between them (ex: smooth dawnstone, rigid dawnstone, royal amethyst)</div>
     <form action="/characters/<%= singleChar._id %>?_method=PUT" method="POST">
-        <input type="text" placeholder="name" name="name">
-            <input type="text" placeholder="class" name="class">
-            <input type="text" placeholder="specialization" name="specialization">
-            <input type="text" placeholder="profession 1" name="profession_1">
+        <input type="text" placeholder="name" name="name" value="<%= singleChar.name%>">
+            <input type="text" placeholder="class" name="class" value="<%= singleChar.class%>">
+            <input type="text" placeholder="specialization" name="specialization" value="<%= singleChar.specialization%>">
+            <input type="text" placeholder="profession 1" name="profession_1" value="<%= singleChar.profession_1%>">
             <input type="text" placeholder="recipes" name="recipe_1" value="">
-            <input type="text" placeholder="profession 2" name="profession_2">
+            <input type="text" placeholder="profession 2" name="profession_2" value="<%= singleChar.profession_2%>">
             <input type="text" placeholder="recipes" name="recipe_2" value="">
         <button type="submit" >Submit</button>
     </form>

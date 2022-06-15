@@ -13,19 +13,19 @@
     <table>
         <% characters.forEach((character) => { %>
             <tr>
-                <td><a href="/characters/<%= character._id  %> "><%= character.name %></a></td>
-                <td><%= character.materialReq.gemColor_1%></td>
+                <td><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></td>
+                <td><%= capitalize(character.materialReq.gemColor_1)%></td>
                 <td><%= character.materialReq.gemAmt_1%></td>
             
-                <td><%= character.materialReq.gemColor_2 %></td>
+                <td><%= capitalize(character.materialReq.gemColor_2) %></td>
                 <td><%= character.materialReq.gemAmt_2 %></td>
                 <td>Sunmotes: </td>
                 <td><%= character.materialReq.sunmoteAmt %></td>
               
-                </tr>
+            </tr>
                 <%})%>
                 
-            </table>
+    </table>
 
 
 </body>

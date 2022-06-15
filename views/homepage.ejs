@@ -14,19 +14,19 @@
             <table>
                 <% characters.forEach((character) => { %>
                     <tr>
-                        <td><a href="/characters/<%= character._id  %> "><%= character.name %></a></td>
-                        <td><%= character.class%></td>
-                        <td><%= character.specialization%></td>
+                        <td><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></td>
+                        <td><%= capitalize(character.class)%></td>
+                        <td><%= capitalize(character.specialization)%></td>
                         <td>Professions</td>
-                        <td><%= character.profession_1 %></td>
-                        <td><%= character.profession_2 %></td>
+                        <td><%= capitalize(character.profession_1) %></td>
+                        <td><%= capitalize(character.profession_2) %></td>
                         <% character.items.forEach((item) =>{ %>
-                            <td><%= item.name  %> </td>
+                            <td><%= capitalize(item.name)  %> </td>
                             <% }) %> 
-                        </tr>
+                    </tr>
                         <%})%>
                         
-                    </table>
+                </table>
                     
                     <a href="/guild/new"><button>Add new character!</button></a>
                     <a href="/guild/matrequests"><button>See All Material Requests</button></a>

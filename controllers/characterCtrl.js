@@ -9,7 +9,7 @@ const User = require('../models/user')
 const loadUserLogin = (req,res) => {
     User.findOne({username : req.body.username})
     .then((user) =>{
-        res.render('loginPage', {user})
+        res.render('loginPage', {user, capitalize})
     })
     
 }
@@ -24,7 +24,7 @@ const createNewUser = (req,res) => {
         Character.find({})
             .then((characters)=>{
             console.log(characters)
-            res.render('homepage', {characters, user} )
+            res.render('homepage', {characters, user, capitalize} )
   })
 })
 }
@@ -34,20 +34,20 @@ const createNewUser = (req,res) => {
 const loadHomepage = (req,res) => {
     Character.find({})
   .then((characters)=>{
-      res.render('homepage', {characters} )
+      res.render('homepage', {characters, capitalize} )
   })
 }
 
 const loadNewCharacter = (req,res) => {
-    res.render('newCharacterPage')
+    res.render('newCharacterPage', {capitalize})
 }
 
 const createNewChar = (req,res) => {
     //prepping recipes
     const str1 = req.body.recipe_1
-    const recipes1arr = str1.split(",")
+    const recipes1arr = str1.split(", ")
     const str2 = req.body.recipe_2
-    const recipes2arr = str2.split(",")
+    const recipes2arr = str2.split(", ")
     req.body.recipe_1 = recipes1arr
     req.body.recipe_2 = recipes2arr
 
@@ -58,22 +58,29 @@ const createNewChar = (req,res) => {
         character.save((err)=> {
             if(err) return err
             res.redirect('/guild')
-        })
+        })//.then((character)=>{
+     //       Guild.find({find guild owner clicked on})
+     //           .then((guild)=>{
+         //         guild.members.push(character._id)
+     //})
+     //   }
     })
 }
 
 const loadEditChar = (req, res)=>{
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
-        res.render('editCharacterPage', {singleChar})
+        res.render('editCharacterPage', {singleChar, capitalize})
     }) 
 };
 
 const editCharacter = (req,res)=>{
     const str1 = req.body.recipe_1
-    const recipes1arr = str1.split(",")
+    const recipes1arr = str1.split(", ")
     const str2 = req.body.recipe_2
-    const recipes2arr = str2.split(",")
+    const recipes2arr = str2.split(", ")
+
+
     req.body.recipe_1 = recipes1arr
     req.body.recipe_2 = recipes2arr
 
@@ -101,8 +108,7 @@ const loadCharPage = (req,res) => {
     Character.findById({_id : req.params.id})
     .populate('owner')
     .then((singleChar)=>{
-        console.log(singleChar.owner._id, req.user._id)
-        res.render('characterPage', {singleChar, deletable : singleChar.owner._id.equals(req.user._id)})
+        res.render('characterPage', {singleChar, deletable : singleChar.owner._id.equals(req.user._id), capitalize})
     })
     .catch(err => {
         console.log(err)
@@ -158,7 +164,7 @@ const loadEditItemsPage = (req,res) => {
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
         let items = singleChar.items
-        res.render('editItemsPage', {singleChar, items, invalid})
+        res.render('editItemsPage', {singleChar, items, invalid, capitalize})
     })
     .catch(err => {
         console.log(err)
@@ -189,7 +195,7 @@ const loadEditItemsPage = (req,res) => {
 const loadMatEditPage = (req,res) => {
     Character.findById({_id : req.params.id})
     .then((singleChar)=>{
-        res.render('editMatRequest', {singleChar})
+        res.render('editMatRequest', {singleChar, capitalize})
     })
     .catch(err => {
         console.log(err)
@@ -209,9 +215,25 @@ const postMatEdit = (req,res) => {
 const loadAllMatReq = (req,res) => {
     Character.find({})
     .then((characters)=>{
-        res.render('allRequests', {characters})
+        res.render('allRequests', {characters, capitalize})
     })
 }
+
+
+//grammar helpers
+let makeString = function (object) {
+    if (object == null) return '';
+    return '' + object;
+};
+
+let capitalize = function (str, lowercaseRest) {
+    str = makeString(str);
+    var remainingChars = !lowercaseRest ? str.slice(1) : str.slice(1).toLowerCase();
+  
+    return str.charAt(0).toUpperCase() + remainingChars;
+};
+
+
 
 module.exports = {
     loadUserLogin,
@@ -231,5 +253,6 @@ module.exports = {
     // loadMatReqPage,
     // postMatReq,
     postMatEdit,
-    loadAllMatReq
+    loadAllMatReq,
+    capitalize
 }

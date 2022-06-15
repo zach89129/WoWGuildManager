@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 require('dotenv').config()
 
+
 // CONFIGURATION
 const app = express()
 const PORT = 3000
@@ -27,6 +28,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 app.use(function (req, res, next) {
