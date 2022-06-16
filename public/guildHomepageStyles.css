@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    font-family: 'Bilbo';
+    flex-direction: column;
+    align-content: space-between;
+    width: 100%;
+    height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    background-image:url('./images/outland_map_manipulation_by_randomforestlady_d4ctgt0-fullview.jpeg') ; 
+}
+
+.charBoxContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+}
+
+.charBox {
+    flex-direction: row;
+    background-image: url("./images/Untitled.png");
+    height: 455px;
+    min-width: 350px;
+    max-width: 350px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+}
+
+.charInfoContainer {
+    padding-left: 60px;
+    padding-top: 65px;
+    padding-bottom: 80px;
+    padding-right: 45px;
+}
+
+/* separate lines on sheet */
+
+.name {
+    font-size: 50px;
+    text-align: center;
+    padding-bottom: none;
+}
+
+.class {
+    padding-top: none;
+    font-size: 24px;
+    text-decoration: solid;
+}
+
+.spec {
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+}
+
+.profTitle {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.prof {
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.items {
+    font-size: 20px;
+    padding-top: 2px;
+    padding-left: 10px;
+}
+
+.wishlist {
+    font-size: 24px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}   
+
+.logoutDiv a{
+    color: whitesmoke;
+}

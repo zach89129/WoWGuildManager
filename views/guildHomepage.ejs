@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bilbo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/guildHomepageStyles.css">
+    
+    <title>Guild Members</title>
+</head>
+<body>
+ 
+     <% if (user) { %>
+        <div class="logoutDiv"><a href="/logout"><i class="oAuth"></i>Log Out</a> </div>
+
+            
+            <div class="charBoxContainer">
+                <% characters.forEach((character) => { %>
+                    <div class="charBox">
+                        <div class="charInfoContainer">
+                        <div class="name"><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
+                        <div class="class"><%= capitalize(character.class)%></div>
+                        <div class="spec"><%= capitalize(character.specialization)%></div>
+                        <div class="profTitle">Professions:</div>
+                        <div class="prof"><%= capitalize(character.profession_1) %></div>
+                        <div class="prof"><%= capitalize(character.profession_2) %></div>
+                        <div class="wishlist">Item Wishlist:</div>
+                        <% character.items.forEach((item) =>{ %>
+                            <div class="items"><%=item.priority%>: <%= capitalize(item.name)  %>
+                            </div>
+                            <% }) %> 
+                        </div>   
+            </div>
+            
+            <%})%>
+            
+        </div>
+                        
+                        <div class="newChar"> <a href="/guild/new"><button>Add new character!</button></a> </div>
+                        <div class="allMatReq"><a href="/guild/matrequests"><button>See All Material Requests</button></a></div>
+                
+                        
+                        <% } else { %>
+                            <div class="loginDiv"> <a href="/auth/google"><i class="material-icons left">🔑 </i>Login with Google</a></div>
+                            <% } %>
+
+                    
+                        </body>
+</html>

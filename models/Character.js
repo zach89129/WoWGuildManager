@@ -45,6 +45,7 @@ const CharacterSchema = new Schema(
       ref: 'User',
       required: false
     },
+    guild: ""
   }
 );
 

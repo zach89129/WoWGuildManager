@@ -24,7 +24,7 @@ const createNewUser = (req,res) => {
         Character.find({})
             .then((characters)=>{
             console.log(characters)
-            res.render('homepage', {characters, user, capitalize} )
+            res.render('guildHomepage', {characters, user, capitalize} )
   })
 })
 }
@@ -34,7 +34,7 @@ const createNewUser = (req,res) => {
 const loadHomepage = (req,res) => {
     Character.find({})
   .then((characters)=>{
-      res.render('homepage', {characters, capitalize} )
+      res.render('guildHomepage', {characters, capitalize} )
   })
 }
 
@@ -55,6 +55,7 @@ const createNewChar = (req,res) => {
         if(err) return err
         character.owner = req.user._id
         character.materialReq = req.body
+        //character.guild = req.body.guildId
         character.save((err)=> {
             if(err) return err
             res.redirect('/guild')
