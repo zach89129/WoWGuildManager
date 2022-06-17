@@ -2,7 +2,12 @@ const express = require('express');
 const { capitalize } = require('underscore');
 const router = express.Router();
 const controller = require('../controllers/characterCtrl')
+const guildController = require('../controllers/guildCtrl')
 
+
+router.get('/guildSelection', guildController.loadGuildSelector)
+
+router.post('/guildSelection', guildController.createNewGuild)
 
 //character routes
 

@@ -59,12 +59,7 @@ const createNewChar = (req,res) => {
         character.save((err)=> {
             if(err) return err
             res.redirect('/guild')
-        })//.then((character)=>{
-     //       Guild.find({find guild owner clicked on})
-     //           .then((guild)=>{
-         //         guild.members.push(character._id)
-     //})
-     //   }
+        })
     })
 }
 

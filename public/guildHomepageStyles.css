@@ -50,6 +50,13 @@ body {
     font-size: 50px;
     text-align: center;
     padding-bottom: none;
+    
+}
+
+.name a{
+    text-decoration: none;
+    color: black;
+    text-shadow: 2px 2px 4px black;
 }
 
 .class {
@@ -87,6 +94,37 @@ body {
     padding-top: 0px;
 }   
 
+.bottomButtons{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.newChar{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgb(247, 216, 170);
+    font-size: 30px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    background-image:url('https://wallpaperaccess.com/full/2796640.jpg') ;
+}
+
+.allMatReq{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgb(247, 216, 170);
+    font-size: 30px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    background-image:url('https://wallpaperaccess.com/full/2796640.jpg') ;
+}
+
 .logoutDiv a{
     color: whitesmoke;
 }
+
+.loginDiv a{
+    color: whitesmoke;
+}
+
+

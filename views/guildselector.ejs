@@ -9,7 +9,13 @@
 <body>
     Choose or create a new guild!
 
-    
+    <div class="guildList">
+        <% guilds.forEach((guild) => { %>
+            <div class="guildName"><a href="/<%=guild._id %>/characters "><%= guild.guildname  %></a> </div>
+
+
+        <% }) %> 
+    </div>
 
 
 
