@@ -93,7 +93,7 @@ const deleteChar = (req,res)=>{
     .then(()=>{
         Character.find({})
         .then(()=>{
-            res.redirect(`/${req.params.guildId}`)
+            res.redirect(`/${req.params.guildId}/characters`)
         })
     })
 };
