@@ -7,13 +7,13 @@
     <title></title>
 </head>
 <body>
-    <form action="http://localhost:3000/Characters/<%= singleChar._id  %> ">
+    <form action="http://localhost:3000/<%=guild%>/Characters/<%= singleChar._id  %> ">
         <input type="submit" value="Go Back"/>
     </form>
     
     <h1>Edit Character</h1>
     <div>**Please enter recipes with a "," between them (ex: smooth dawnstone, rigid dawnstone, royal amethyst)</div>
-    <form action="/characters/<%= singleChar._id %>?_method=PUT" method="POST">
+    <form action="/<%=guild%>/characters/<%= singleChar._id %>?_method=PUT" method="POST">
         <input type="text" placeholder="name" name="name" value="<%= singleChar.name%>">
             <input type="text" placeholder="class" name="class" value="<%= singleChar.class%>">
             <input type="text" placeholder="specialization" name="specialization" value="<%= singleChar.specialization%>">

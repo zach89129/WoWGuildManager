@@ -11,39 +11,35 @@ router.post('/guildSelection', guildController.createNewGuild)
 
 //character routes
 
-router.get('/guild', controller.loadHomepage)
+router.get('/:guildId/characters', controller.loadHomepage)
 
-router.get('/guild/new', controller.loadNewCharacter)
+router.get('/:guildId/characters/new', controller.loadNewCharacter)
 
-router.post('/guild', controller.createNewChar )
+router.post('/:guildId/characters', controller.createNewChar )
 
-router.get('/characters/:id', controller.loadCharPage)
+router.get('/:guildId/characters/:charId', controller.loadCharPage)
 
-router.get('/characters/:id/editCharacter', controller.loadEditChar) 
+router.get('/:guildId/characters/:charId/edit', controller.loadEditChar) 
 
-router.put("/characters/:id", controller.editCharacter)
+router.put("/:guildId/characters/:charId", controller.editCharacter)
 
-router.delete("/characters/:id", controller.deleteChar)
+router.delete("/:guildId/characters/:charId", controller.deleteChar)
 
 //wishlist routes
 
-router.get('/characters/:id/editWishlist', controller.loadEditItemsPage)
+router.get('/:guildId/characters/:charId/editWishlist', controller.loadEditItemsPage)
 
-router.post('/characters/:id/editWishlist', controller.postNewItem)
+router.post('/:guildId/characters/:charId/editWishlist', controller.postNewItem)
 
-router.delete('/characters/:id/editWishlist', controller.deleteOneItem)
+router.delete('/:guildId/characters/:charId/editWishlist', controller.deleteOneItem)
 
 //materials routes
+router.get("/:guildId/materialRequests", controller.loadAllMatReq)
 
-// router.get('/characters/:id/materialrequest', controller.loadMatReqPage)
+router.get('/:guildId/characters/:charId/materialedit', controller.loadMatEditPage)
 
-// router.post('/characters/:id', controller.postMatReq)
+router.put('/:guildId/characters/:charId/matReq', controller.postMatEdit)
 
-router.get('/characters/:id/materialedit', controller.loadMatEditPage)
-
-router.put('/characters/:id/matReq', controller.postMatEdit)
-
-router.get("/guild/matrequests", controller.loadAllMatReq)
 
 
 module.exports = router

@@ -7,7 +7,7 @@
     <title>Edit Wishlist</title>
 </head>
 <body>
-    <form action="http://localhost:3000/characters/<%= singleChar._id  %> ">
+    <form action="http://localhost:3000/<%=guild%>/characters/<%= singleChar._id  %> ">
         <input type="submit" value="Go Back"/>
     </form>
     
@@ -22,7 +22,7 @@
                 <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= capitalize(item.name) %> </a></li>
                 <li><%= capitalize(item.boss) %> </li>
                 <li><%= capitalize(item.slot) %> </li>
-                <form action="/characters/<%= singleChar._id %>/editWishlist?_method=DELETE" method="POST">
+                <form action="/<%=guild%>/characters/<%= singleChar._id %>/editWishlist?_method=DELETE" method="POST">
                     <input type="hidden" value="<%=i%>" name="wishlistIndex">
                 <input type="submit" value="Delete item"/>
                 </form> 
@@ -37,7 +37,7 @@
         <div>
             <% if(singleChar.items.length  < 3 ) {%> 
                 <h1>Add a new Wishlist Item</h1>
-            <form action="/characters/<%= singleChar._id %>/editWishlist" method="post">
+            <form action="/<%=guild%>/characters/<%= singleChar._id %>/editWishlist" method="post">
                 <input type="text" placeholder="name" name="name">
                 <input type="text" placeholder="link" name="link">
                 <input type="text" placeholder="boss" name="boss">

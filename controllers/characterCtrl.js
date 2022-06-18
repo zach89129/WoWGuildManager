@@ -23,7 +23,6 @@ const createNewUser = (req,res) => {
     .then((user) =>{
         Character.find({})
             .then((characters)=>{
-            console.log(characters)
             res.render('guildHomepage', {characters, user, capitalize} )
   })
 })
@@ -32,14 +31,14 @@ const createNewUser = (req,res) => {
 
 //guild functions
 const loadHomepage = (req,res) => {
-    Character.find({})
+    Character.find({ guild: ` ${req.params.guildId} `})
   .then((characters)=>{
-      res.render('guildHomepage', {characters, capitalize} )
+      res.render('guildHomepage', {characters, capitalize, guild : req.params.guildId} )
   })
 }
 
 const loadNewCharacter = (req,res) => {
-    res.render('newCharacterPage', {capitalize})
+    res.render('newCharacterPage', {capitalize, guild : req.params.guildId})
 }
 
 const createNewChar = (req,res) => {
@@ -55,18 +54,18 @@ const createNewChar = (req,res) => {
         if(err) return err
         character.owner = req.user._id
         character.materialReq = req.body
-        //character.guild = req.body.guildId
+        character.guild = req.body.guildId
         character.save((err)=> {
             if(err) return err
-            res.redirect('/guild')
+            res.redirect(`/${req.params.guildId}/characters`)
         })
     })
 }
 
 const loadEditChar = (req, res)=>{
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .then((singleChar)=>{
-        res.render('editCharacterPage', {singleChar, capitalize})
+        res.render('editCharacterPage', {guild: req.params.guildId, singleChar, capitalize})
     }) 
 };
 
@@ -80,31 +79,31 @@ const editCharacter = (req,res)=>{
     req.body.recipe_1 = recipes1arr
     req.body.recipe_2 = recipes2arr
 
-    Character.findOneAndUpdate({_id : req.params.id}, req.body)
+    Character.findOneAndUpdate({_id : req.params.charId}, req.body)
     .then(()=>{
         Character.find({})
         .then(()=>{
-            res.redirect(`/characters/${req.params.id}`)
+            res.redirect(`/${req.params.guildId}/characters/${req.params.charId}`)
         })
     })
 };
 
 const deleteChar = (req,res)=>{
-    Character.findOneAndDelete({_id : req.params.id})
+    Character.findOneAndDelete({_id : req.params.charId})
     .then(()=>{
         Character.find({})
         .then(()=>{
-            res.redirect(`/guild`)
+            res.redirect(`/${req.params.guildId}`)
         })
     })
 };
 
 
 const loadCharPage = (req,res) => {
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .populate('owner')
     .then((singleChar)=>{
-        res.render('characterPage', {singleChar, deletable : singleChar.owner._id.equals(req.user._id), capitalize})
+        res.render('characterPage', {guild: req.params.guildId ,singleChar, deletable : singleChar.owner._id.equals(req.user._id), capitalize})
     })
     .catch(err => {
         console.log(err)
@@ -113,21 +112,21 @@ const loadCharPage = (req,res) => {
 
 
 const postNewItem = (req,res) => {
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .then((singleChar)=>{
         let prioArr = singleChar.items.map((item)=>{
             return item.priority
         })
 
         if (prioArr.includes(parseInt(req.body.priority))){
-            res.redirect(`/characters/${req.params.id}/editWishlist?invalid=true`)
+            res.redirect(`/${req.params.guildId}/characters/${req.params.charId}/editWishlist?invalid=true`)
             res.end()
         } else {
             singleChar.items.push(req.body)
             singleChar.items = singleChar.items.sort((a, b) => parseInt(a.priority) - parseInt(b.priority));
             singleChar.save()
             setTimeout(() => {
-                res.redirect(`/characters/${req.params.id}/editWishlist`)
+                res.redirect(`/${req.params.guildId}/characters/${req.params.charId}/editWishlist`)
               }, "650")
         }
     })
@@ -137,7 +136,7 @@ const postNewItem = (req,res) => {
 }
 
 const deleteOneItem = (req, res) =>{
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .then((singleChar)=>{
             let index = parseInt(req.body.wishlistIndex)
             singleChar.items.splice(index, 1)
@@ -145,7 +144,7 @@ const deleteOneItem = (req, res) =>{
     })
     .then(()=>{
         setTimeout(() => {
-            res.redirect(`/characters/${req.params.id}/editWishlist`)
+            res.redirect(`/${req.params.guildId}/characters/${req.params.charId}/editWishlist`)
           }, "650")
     })
     
@@ -157,10 +156,10 @@ const deleteOneItem = (req, res) =>{
 
 const loadEditItemsPage = (req,res) => {
     let invalid = req.url.split("=")[1]
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .then((singleChar)=>{
         let items = singleChar.items
-        res.render('editItemsPage', {singleChar, items, invalid, capitalize})
+        res.render('editItemsPage', {guild : req.params.guildId, singleChar, items, invalid, capitalize})
     })
     .catch(err => {
         console.log(err)
@@ -189,9 +188,9 @@ const loadEditItemsPage = (req,res) => {
 // }
 
 const loadMatEditPage = (req,res) => {
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .then((singleChar)=>{
-        res.render('editMatRequest', {singleChar, capitalize})
+        res.render('editMatRequest', {guild: req.params.guildId, singleChar, capitalize})
     })
     .catch(err => {
         console.log(err)
@@ -199,19 +198,20 @@ const loadMatEditPage = (req,res) => {
 }
 
 const postMatEdit = (req,res) => {
-    Character.findById({_id : req.params.id})
+    Character.findById({_id : req.params.charId})
     .then((singleChar)=>{
         singleChar.materialReq = req.body
         singleChar.save((err)=>{
-            res.redirect(`/characters/${req.params.id}`)
+            res.redirect(`/${req.params.guildId}/characters/${req.params.charId}`)
         })
     })
 }
 
 const loadAllMatReq = (req,res) => {
-    Character.find({})
+    console.log(req)
+    Character.find({guild: ` ${req.params.guildId} `})
     .then((characters)=>{
-        res.render('allRequests', {characters, capitalize})
+        res.render('allRequests', {guild: req.params.guildId, characters, capitalize})
     })
 }
 

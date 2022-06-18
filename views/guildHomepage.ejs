@@ -21,7 +21,7 @@
                 <% characters.forEach((character) => { %>
                     <div class="charBox">
                         <div class="charInfoContainer">
-                        <div class="name"><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
+                        <div class="name"><a href="/<%=guild%>/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
                         <div class="class"><%= capitalize(character.class)%></div>
                         <div class="spec"><%= capitalize(character.specialization)%></div>
                         <div class="profTitle">Professions:</div>
@@ -39,8 +39,8 @@
             
         </div>
                         <div class="bottomButtons">
-                        <div> <a href="/guild/new"><button class="newChar">Add new character!</button></a> </div>
-                        <div><a href="/guild/matrequests"><button class="allMatReq">See All Material Requests</button></a></div>
+                        <div> <a href="/<%=guild%>/characters/new"><button class="newChar">Add new character!</button></a> </div>
+                        <div><a href="/<%=guild%>/materialRequests"><button class="allMatReq">See All Material Requests</button></a></div>
                         </div>
 
                         

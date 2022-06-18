@@ -7,14 +7,14 @@
     <title>Create Character</title>
 </head>
 <body>
-    <form action="http://localhost:3000/guild/">
+    <form action="http://localhost:3000/<%=guild%>/characters">
         <input type="submit" value="Go Back"/>
     </form>
 
     <h1>Create a new Character!</h1>
 
     <div>
-        <form action="/guild" method="post">
+        <form action="/<%=guild%>/characters" method="POST">
             <input type="text" placeholder="name" name="name">
             <input type="text" placeholder="class" name="class">
             <input type="text" placeholder="specialization" name="specialization">
@@ -27,7 +27,7 @@
             <input type="hidden" placeholder="Gem Color" name="gemColor_2" value="">
             <input type="hidden" name="gemAmt_2" value="0">
             <input type="hidden" name="sunmoteAmt" value="0">
-            <!-- <input type="hidden" name="guildId" value=" guild._id "> -->
+            <input type="hidden" name="guildId" value=" <%=guild%> ">
             <button type="submit" >Submit</button>
     </div>
 
