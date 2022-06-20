@@ -11,7 +11,7 @@ require('dotenv').config()
 
 // CONFIGURATION
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT||3000
 require('./db/connection')
 require('./db/passport');
 // SET UP ROUTES TO ACCEPT FORMS/JSON
