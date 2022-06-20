@@ -5,21 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/loginStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <div class="backgroundAdjustment">
-    <div class="loginPageTitle">Welcome to WoW TBC Guild Manager!</div>
-    <div class="privacyWarning">**We will not sell or release any information from google, all we use is the username/id to tie you to your characters!</div>
+    <div class="loginPageTitle">Welcome to WoW TBC Guild Manager</div>
+    
 
     
         <div class="loginButton">
         <% if (user) { %>
             <a href="/logout"><i class="googleLogin">trending_flat</i>Log Out</a>
         <% } else { %>
-            <a href="/auth/google"><button class="googleLogin"> Login with Google! </button></a>
+            <a href="/auth/google"><button class="googleLogin"> Login with Google </button></a>
         <% } %>
         </div>
     </div>
+    <div class="privacyWarning">**We will not sell or release any information from google, all we use is the username/id to tie you to your characters!</div>    
 </body>
 </html>

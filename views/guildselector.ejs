@@ -4,28 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/guildSelectionStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&family=Raleway:wght@300&display=swap" rel="stylesheet">
+
     <title>Guilds</title>
 </head>
 <body>
-    Choose or create a new guild!
+    <div class="title">Choose or Create A New Guild</div>
+
 
     <div class="guildList">
         <% guilds.forEach((guild) => { %>
-            <div class="guildName"><a href="/<%=guild._id %>/characters "><%= guild.guildname  %></a> </div>
-
-
+            <div class="guildName"><a href="/<%=guild._id %>/characters "><button><%= guild.guildname  %></button></a> </div>
         <% }) %> 
     </div>
 
 
-
+    <div class="newGuild">
     <form action="/guildSelection" method="POST">
         <input type="text" name="guildname">
         <button type="submit">Submit</button>
     </form>
+    </div>
 
 
 
-
+   <div class="photoCredit">Background Image by Adam Törn</div>
 </body>
 </html>
