@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/singleCharStyles.css">
+    <link rel="stylesheet" media="screen and (max-width: 900px)" href="/singleCharStylesSmall.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Joan&family=Stoke&display=swap" rel="stylesheet">
     <title><%= singleChar.name  %> </title>
 </head>
 
@@ -15,7 +16,7 @@
     <div class="buttons">
     <div class="goBack">
     <form action="http://localhost:3000/<%=guild%>/characters">
-        <input type="submit" value="Go Back"/>
+        <input class="goBackButton"type="submit" value="Go Back"/>
     </form>
     </div>
 
@@ -30,7 +31,7 @@
 
         <% if(deletable){ %> 
             <form action="/<%=guild%>/characters/<%= singleChar._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete Character"/>
+                <input class="deleteInput" type="submit" value="Delete Character"/>
             </form>
         <% } %> 
     </div>
@@ -92,7 +93,7 @@
             <% }) %> 
             
             <% if(deletable){ %> 
-                <a href="/<%=guild%>/characters/<%= singleChar._id %>/editWishlist"><button>Edit Wishlist!</button></a>
+                <div class="editWishlistButton"><a href="/<%=guild%>/characters/<%= singleChar._id %>/editWishlist"><button>Edit Wishlist!</button></a></div>
                 <% } %> 
                 
             </div>
@@ -106,7 +107,7 @@
                     <div class="mats"><%= capitalize(singleChar.materialReq.gemColor_2) %>: <%= singleChar.materialReq.gemAmt_2 %></div>
                     <% } %> 
                     <% if (singleChar.materialReq.sunmoteAmt > 0){ %> 
-                    <div class="mats">Sunmotes: <%= singleChar.materialReq.sunmoteAmt %> </div>
+                    <div class="mats">Sunmotes: <%= singleChar.materialReq.sunmoteAmt %> for <%= singleChar.materialReq.sunmoteUse %></div>
                     <% } %> 
                     
                     <% if(deletable){ %> 

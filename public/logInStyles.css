@@ -23,24 +23,24 @@ body {
 
         /* Location of the image */
  
+        /* background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
+        url('https://pbs.twimg.com/media/EuoAbclVcAMu-Bz?format=jpg&name=large'); */
         background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
-        url('https://pbs.twimg.com/media/EuoAbclVcAMu-Bz?format=jpg&name=large');
-
+        url('./images/994628.jpeg');
 
 }
 
 
-/* .backgroundAdjustment {
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 25px;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
-} */
+.backgroundAdjustment {
+    justify-content: center;
+}
 
 .loginPageTitle {
     font-size: 100px;
     padding: 5px;
     text-align: center;
-    text-shadow: 1px 1px 2px black, 0 0 25px rgb(8, 167, 2), 0 0 5px rgb(9, 112, 0);
+    color: rgb(254, 217, 115, 0.8);
+    text-shadow: 2px 2px 4px black
 }
 
 .privacyWarning {
@@ -52,14 +52,22 @@ body {
     top: 95%;
 }
 
+
+
 .loginButton {
-    align-self: center;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+
 }
 
 a {
     font-size: 40px;
-    text-align: center;   
+    text-align: center; 
+    position: fixed;
+    top: 50%;
+     
 }
 
 .googleLogin {

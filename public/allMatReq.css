@@ -1,0 +1,56 @@
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Crimson Text', serif;
+    width: 100%;
+    height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-image:url('https://wallpaperaccess.com/full/2796640.jpg') ;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+}
+
+.matReq{
+    font-size: 25px;
+    margin: 0 10px 20px 10px;
+    padding: 5px 5px 5px 5px;
+    border: 2px black solid;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.461);
+}
+
+
+.button{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgba(247, 216, 170, 0);
+    font-size: 18px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border: none;
+
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.467);
+    color: antiquewhite;
+} 
+
+a{
+    text-decoration: underline;
+    color: black;
+    /* text-shadow: 2px 2px 4px black; */
+    transition: color 0.5s ease-out 10ms
+}
+
+a:hover {
+    text-shadow: 2px 2px 4px black;
+}

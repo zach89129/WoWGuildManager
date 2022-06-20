@@ -54,7 +54,7 @@ body {
     font-family: 'Bilbo';
     border-radius: 25px;
     background-color: rgba(247, 216, 170, 0);
-    font-size: 30px;
+    font-size: 15px;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border: none;
 }
@@ -69,7 +69,7 @@ body {
     font-family: 'Bilbo';
     border-radius: 25px;
     background-color: rgba(247, 216, 170, 0);
-    font-size: 30px;
+    font-size: 15px;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border: none;
 }
@@ -83,7 +83,7 @@ body {
     font-family: 'Bilbo';
     border-radius: 25px;
     background-color: rgba(247, 216, 170, 0);
-    font-size: 30px;
+    font-size: 15px;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border: none;
 }
@@ -104,13 +104,13 @@ body {
 
 
 .charName {
-    font-size: 200px;
+    font-size: 100px;
     font-family: 'Stoke', serif;
     margin: none;
     padding: none; 
 }
 .charClass {
-    font-size: 35px;
+    font-size: 20px;
 }
 
 .wholeCharContainer {
@@ -130,14 +130,14 @@ body {
 }
 
 .profTitle {
-    font-size: 50px;
+    font-size: 25px;
     text-decoration: underline 2px;
     text-align: center;
     font-family: 'Stoke', serif;
 }
 
 .professions {
-    font-size: 45px;
+    font-size: 35px;
     padding-left: 8px;
     padding-top: 0px;
     text-decoration: underline;
@@ -150,12 +150,12 @@ body {
 }
 
 .recipesTitle {
-    font-size: 40px;
+    font-size: 20px;
     font-family: 'Crimson Text', serif;
 }
 
 .recipes {
-    font-size: 22px;
+    font-size: 12px;
     margin: none;
     font-family: 'Crimson Text', serif;
 }
@@ -192,7 +192,7 @@ ul .itemList {
     font-family: 'Bilbo';
     border-radius: 25px;
     background-color: rgba(247, 216, 170, 0);
-    font-size: 30px;
+    font-size: 15px;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border: none;
 }
@@ -205,7 +205,7 @@ ul .itemList {
 
 
 .itemList li {
-    font-size: 25px;
+    font-size: 12px;
 }
 
 .itemList a{
@@ -225,21 +225,21 @@ ul .itemList {
 }
 
 .wishListTitle {
-    font-size: 50px;
+    font-size: 25px;
     text-decoration: underline 2px;
     text-align: center;
     font-family: 'Stoke', serif;
 }
 
 .matReqTitle {
-    font-size: 50px;
+    font-size: 25px;
     text-decoration: underline 2px;
     text-align: center;
     font-family: 'Stoke', serif;
 }
 
 .mats {
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
     font-family: 'Crimson Text', serif;
 }
@@ -259,7 +259,7 @@ ul .itemList {
     font-family: 'Bilbo';
     border-radius: 25px;
     background-color: rgba(247, 216, 170, 0);
-    font-size: 30px;
+    font-size: 15px;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     border: none;
 

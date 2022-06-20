@@ -40,16 +40,32 @@ body {
 }
 
 .charInfoContainer {
-    padding-left: 60px;
-    padding-top: 65px;
-    padding-bottom: 80px;
-    padding-right: 45px;
+    margin: 65px 45px 80px 50px;
+    overflow: auto;
+    max-height: 330px;
+    max-width: auto;
+
 }
 
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: auto;
+    }
+    
+    ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: rgba(20, 28, 6, 0.37);  
+    border-radius: 10px;
+    }
 /* separate lines on sheet */
 
 .name {
-    font-size: 50px;
+    font-size: 45px;
     text-align: center;
     padding-bottom: none;
     
@@ -142,4 +158,16 @@ body {
     position: fixed;
     top: 98%;
     right: 5%;
+}
+
+.googleLogin {
+    font-size: 20px;
+    border-radius: 25px;
+    font-family: 'Joan', serif;
+    background-color: rgba(255, 255, 255, 0.301);
+}
+
+.googleLogin:hover {
+    background-color: rgba(0, 0, 0, 0.64);
+    color: rgba(255, 255, 255, 0.682);
 }

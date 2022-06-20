@@ -25,7 +25,8 @@ const MaterialSchema = new Schema(
     gemAmt_1: Number,
     gemColor_2: String,
     gemAmt_2: Number,
-    sunmoteAmt: Number
+    sunmoteAmt: Number,
+    sunmoteUse: String
   }
 );
 

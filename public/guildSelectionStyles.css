@@ -52,7 +52,7 @@ body {
     width:450px;
     /* border:5px solid rgb(34, 34, 34, 0.7); */
     border-radius: 25px;
-    overflow:auto;
+    overflow: auto;
     position: fixed;
     top: 40%;
 }
