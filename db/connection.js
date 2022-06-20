@@ -7,17 +7,17 @@ const db = mongoose.connection
 
 //connect to database
 
-// mongoose.connect(process.env.DATABASE_URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true
-//   });
+mongoose.connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    // useCreateIndex: true
+  });
 
 
   //local
-mongoose.connect('mongodb://localhost:27017/wow-guild-manager', {
-    useNewUrlParser: true
-})
+// mongoose.connect('mongodb://localhost:27017/wow-guild-manager', {
+//     useNewUrlParser: true
+// })
 
 
 

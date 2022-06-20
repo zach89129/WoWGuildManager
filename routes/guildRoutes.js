@@ -1,41 +1,45 @@
-const express = require('express')
+const express = require('express');
+const { capitalize } = require('underscore');
 const router = express.Router();
 const controller = require('../controllers/characterCtrl')
+const guildController = require('../controllers/guildCtrl')
 
 
+router.get('/guildSelection', guildController.loadGuildSelector)
 
+router.post('/guildSelection', guildController.createNewGuild)
 
-router.get('/guild', controller.loadHomepage)
+//character routes
 
-router.get('/guild/new', controller.loadNewCharacter)
+router.get('/:guildId/characters', controller.loadHomepage)
 
-router.post('/guild', controller.createNewChar )
+router.get('/:guildId/characters/new', controller.loadNewCharacter)
 
-router.get('/characters/:id', controller.loadCharPage)
+router.post('/:guildId/characters', controller.createNewChar )
 
-// router.get('/characters/:id/newItem', controller.loadNewItemPage)
+router.get('/:guildId/characters/:charId', controller.loadCharPage)
 
-router.get('/characters/:id/editWishlist', controller.loadEditItemsPage)
+router.get('/:guildId/characters/:charId/edit', controller.loadEditChar) 
 
-router.post('/characters/:id/editWishlist', controller.postNewItem)
+router.put("/:guildId/characters/:charId", controller.editCharacter)
 
-router.delete('/characters/:id/editWishlist', controller.deleteOneItem)
+router.delete("/:guildId/characters/:charId", controller.deleteChar)
 
-router.get('/characters/:id/editCharacter', /*load edit character page */) 
+//wishlist routes
 
-router.put("/characters/:id", /* edit character page */)
+router.get('/:guildId/characters/:charId/editWishlist', controller.loadEditItemsPage)
 
-router.delete("/characters/:id", /*delete character page */)
+router.post('/:guildId/characters/:charId/editWishlist', controller.postNewItem)
 
-// router.get('/guild/:id/materialrequest', /*load new material request page */)
+router.delete('/:guildId/characters/:charId/editWishlist', controller.deleteOneItem)
 
-// router.post('/guild/:id', /*posting material request */)
+//materials routes
+router.get("/:guildId/materialRequests", controller.loadAllMatReq)
 
-// router.get('/guild/:id/materialedit', /*load material request edit page */)
+router.get('/:guildId/characters/:charId/materialedit', controller.loadMatEditPage)
 
-// router.put('/guild/:id', /*posting edit request */)
+router.put('/:guildId/characters/:charId/matReq', controller.postMatEdit)
 
-// router.get("/guild/materialrequests", /*load material request page showing all */)
 
 
 module.exports = router

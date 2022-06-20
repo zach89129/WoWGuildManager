@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 require('dotenv').config()
 
+
 // CONFIGURATION
 const app = express()
 const PORT = 3000
@@ -29,9 +30,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 app.use(function (req, res, next) {
   res.locals.user = req.user;
-  console.log("this is the drone youre looking for",res.locals, req.user)
   next();
 });
 

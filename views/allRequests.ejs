@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/allMatReq.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+    <title>Material Request</title>
+</head>
+<body>
+    <form action="http://localhost:3000/<%=guild%>/characters">
+        <input class="button" type="submit" value="Go Back"/>
+    </form>
+    <div class="container">
+        <% characters.forEach((character) => { %>
+            <div class="matReq">
+                <%if (character.materialReq.gemAmt_1 > 0 || character.materialReq.gemAmt_2 > 0){ %>
+                <div><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
+                <div><%= capitalize(character.materialReq.gemColor_1)%> : <%= character.materialReq.gemAmt_1%></div>
+                <div><%= capitalize(character.materialReq.gemColor_2) %> : <%= character.materialReq.gemAmt_1%></div>
+                <div>Sunmotes: <%= character.materialReq.sunmoteAmt %></div>
+               <% } %> 
+              
+            </div>
+                <%})%>
+    </div>
+                
+    
+
+
+</body>
+</html>

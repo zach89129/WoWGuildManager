@@ -7,6 +7,13 @@
       "recipe_1": [""],
       "profession_2": "Engineering",
       "recipe_2": [""],
+      "materialReq":   {
+        "gemColor_1": "orange",
+        "gemAmt_1": "2",
+        "gemColor_2": "Green",
+        "gemAmt_2": "1",
+        "sunmoteAmt": "6"
+      },
       "items": [{
           "name": "Apolyon, the Soul-Render",
           "link": "https://tbc.wowhead.com/item=34247/apolyon-the-soul-render",

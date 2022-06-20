@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Joan', serif;
+    width: 100%;
+    height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
+    background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
+    url('./images/994628.jpeg');
+
+}
+
+.title {
+    font-size: 100px;
+    text-align: center;
+    padding-bottom: 200px;
+    /* padding-top: 100px; */
+    color: rgb(254, 217, 115, 0.8);
+    text-shadow: 2px 2px 4px black
+
+}
+
+.guildName {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.guildName button {
+    font-family: 'Raleway', sans-serif; 
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.765);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px black;
+    text-decoration: none;
+    
+}
+
+.guildName button:hover {
+    box-shadow: 0 5px 5px rgba(0,0,0,0.24), 0 7px 7px rgba(0,0,0,0.19);
+    background-color: rgb(254, 217, 115, 0.6);
+  }
+
+
+.guildList {
+    height:450px;
+    width:450px;
+    /* border:5px solid rgb(34, 34, 34, 0.7); */
+    border-radius: 25px;
+    overflow: auto;
+    position: fixed;
+    top: 40%;
+}
+
+.newGuild {
+    position: fixed;
+    top: 90%;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+  }
+
+input[type=text]:focus {
+    border: 5px solid rgb(48, 48, 48);
+  }
+
+input[type=text] {
+    background-color: rgba(0, 0, 0, 0.5);
+    size: 30px;
+    color: rgb(255, 231, 200);
+}
+
+button[type=submit] {
+    background-color: rgb(254, 217, 115, 0.6);
+}
+
+.photoCredit {
+    color: antiquewhite;
+    font-size: 8px;
+    position: fixed;
+    top: 95%;
+    right: 5%;
+}

@@ -4,9 +4,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user name</title>
+    <link rel="stylesheet" href="/formStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+    <title></title>
 </head>
+<script type="text/javascript">
+    //auto expand textarea
+    function adjust_textarea(h) {
+        h.style.height = "20px";
+        h.style.height = (h.scrollHeight)+"px";
+    }
+</script>
 <body>
+
+
+    <div>
+    <form action="http://localhost:3000/<%=guild%>/Characters/<%= singleChar._id  %> ">
+        <input class="button" type="submit" value="Go Back"/>
+    </form>
+    </div>
     
+    <!-- <h1>Edit Character</h1>
+    <div>**Please enter recipes with a "," between them (ex: smooth dawnstone, rigid dawnstone, royal amethyst)</div>
+    <form action="/<%=//guild%>/characters/<%= //singleChar._id %>?_method=PUT" method="POST">
+            <input type="text" placeholder="name" name="name" value="<%= //singleChar.name%>">
+            <input type="text" placeholder="class" name="class" value="<%= //singleChar.class%>">
+            <input type="text" placeholder="specialization" name="specialization" value="<%= //singleChar.specialization%>">
+            <input type="text" placeholder="profession 1" name="profession_1" value="<%= //singleChar.profession_1%>">
+            <input type="text" placeholder="recipes" name="recipe_1" value="">
+            <input type="text" placeholder="profession 2" name="profession_2" value="<%= //singleChar.profession_2%>">
+            <input type="text" placeholder="recipes" name="recipe_2" value="">
+        <button type="submit" >Submit</button>
+    </form> -->
+    <div class="container">
+    <div class="title">Edit Character</div>
+    <form action="/<%=guild%>/characters/<%= singleChar._id %>?_method=PUT" method="POST" class="form-style-7">
+        <ul>
+        <li>
+            <label for="name">Character Name</label>
+            <input type="text" placeholder="name" name="name" value="<%= capitalize(singleChar.name)%>" maxlength="100">
+            <span>Enter your character name here</span>
+        </li>
+        <li>
+            <label for="class">Class</label>
+            <input type="text" placeholder="class" name="class" value="<%= capitalize(singleChar.class)%>" maxlength="100">
+            <span>Enter your class</span>
+        </li>
+        <li>
+            <label for="specialization">Specialization</label>
+            <input type="text" placeholder="specialization" name="specialization" value="<%= capitalize(singleChar.specialization)%>" maxlength="100">
+            <span>Your specialization</span>
+        </li>
+        <li>
+            <label for="profession_1">Profession 1</label>
+            <input type="text" placeholder="profession 1" name="profession_1" value="<%= capitalize(singleChar.profession_1)%>" maxlength="100">
+            <span>Profession 1</span>
+        </li>
+        <li>
+            <label for="recipe_1">Recipes</label>
+            <textarea placeholder="recipes" name="recipe_1" value="" onkeyup="adjust_textarea(this)"></textarea>
+            <span>Important recipes for <%=capitalize(singleChar.profession_1) %>. (use , to separate)</span>
+        </li>
+        <li>
+            <label for="profession_2">Profession 2</label>
+            <input type="text" placeholder="profession 2" name="profession_2" value="<%= capitalize(singleChar.profession_2)%>" maxlength="100">
+            <span>Profession 2</span>
+        </li>
+        <li>
+            <label for="recipe_2">Recipes</label>
+            <textarea placeholder="recipes" name="recipe_2" value="" onkeyup="adjust_textarea(this)"></textarea>
+            <span>Important recipes for <%=capitalize(singleChar.profession_2) %>. (use , to separate)</span>
+        </li>
+        <li>
+            <input type="submit" value="Submit" >
+        </li>
+        </ul>
+        </form>
+    </div>
+
 </body>
 </html>

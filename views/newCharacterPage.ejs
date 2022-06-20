@@ -4,24 +4,101 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/formStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
     <title>Create Character</title>
 </head>
+<script type="text/javascript">
+    //auto expand textarea
+    function adjust_textarea(h) {
+        h.style.height = "20px";
+        h.style.height = (h.scrollHeight)+"px";
+    }
+</script>
+
 <body>
-    
-
-    <h1>Create a new Character!</h1>
-
     <div>
-        <form action="/guild" method="post">
+    <form action="http://localhost:3000/<%=guild%>/characters">
+        <input class="button" type="submit" value="Go Back"/>
+    </form>
+    </div>
+
+
+    <div class="container">
+    <div class="title">Create a new Character!</div>
+
+    <!-- <div>
+        <form action="/<%=//guild%>/characters" method="POST">
             <input type="text" placeholder="name" name="name">
             <input type="text" placeholder="class" name="class">
             <input type="text" placeholder="specialization" name="specialization">
             <input type="text" placeholder="profession 1" name="profession_1">
+            <input type="text" placeholder="recipes" name="recipe_1" value="">
             <input type="text" placeholder="profession 2" name="profession_2">
+            <input type="text" placeholder="recipes" name="recipe_2" value="">
+            <input type="hidden" placeholder="Gem Color" name="gemColor_1" value="">
+            <input type="hidden" name="gemAmt_1" value="0">
+            <input type="hidden" placeholder="Gem Color" name="gemColor_2" value="">
+            <input type="hidden" name="gemAmt_2" value="0">
+            <input type="hidden" name="sunmoteAmt" value="0">
+            <input type="hidden" name="guildId" value=" <%=//guild%> ">
             <button type="submit" >Submit</button>
+    </div> -->
+
+
+    <div class="newCharacter">
+        <form action="/<%=guild%>/characters" method="POST" class="form-style-7">
+            <ul>
+            <li>
+                <label for="name">Character Name</label>
+                <input type="text" placeholder="Name" name="name" maxlength="100">
+                <span>Enter your character name here</span>
+            </li>
+            <li>
+                <label for="class">Class</label>
+                <input type="text" placeholder="Class" name="class" maxlength="100">
+                <span>Enter your class</span>
+            </li>
+            <li>
+                <label for="specialization">Specialization</label>
+                <input type="text" placeholder="Specialization" name="specialization" maxlength="100">
+                <span>Your specialization</span>
+            </li>
+            <li>
+                <label for="profession_1">Profession 1</label>
+                <input type="text" placeholder="Profession 1" name="profession_1" maxlength="100">
+                <span>Profession 1</span>
+            </li>
+            <li>
+                <label for="recipe_1">Recipes</label>
+                <textarea placeholder="Recipes" name="recipe_1" value="" onkeyup="adjust_textarea(this)"></textarea>
+                <span>Important recipes for first profession. (use , to separate)</span>
+            </li>
+            <li>
+                <label for="profession_2">Profession 2</label>
+                <input type="text" placeholder="Profession 2" name="profession_2" maxlength="100">
+                <span>Profession 2</span>
+            </li>
+            <li>
+                <label for="recipe_2">Recipes</label>
+                <textarea placeholder="Recipes" name="recipe_2" value="" onkeyup="adjust_textarea(this)"></textarea>
+                <span>Important recipes for second recipe. (use , to separate)</span>
+            </li>
+            <input type="hidden" placeholder="Gem Color" name="gemColor_1" value="">
+            <input type="hidden" name="gemAmt_1" value="0">
+            <input type="hidden" placeholder="Gem Color" name="gemColor_2" value="">
+            <input type="hidden" name="gemAmt_2" value="0">
+            <input type="hidden" name="sunmoteAmt" value="0">
+            <input type="hidden" name="guildId" value=" <%=guild%> ">
+            <li>
+                <input type="submit" value="Submit" >
+            </li>
+            </ul>
+            </form>
     </div>
-
-
+</div>
 
 </body>
 </html>

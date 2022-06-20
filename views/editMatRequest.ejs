@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/formStyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Joan&display=swap" rel="stylesheet">
+    <title>Edit Material Request</title>
+</head>
+<body>
+    <div>
+    <form action="http://localhost:3000/<%=guild%>/characters/<%= singleChar._id %>">
+        <input class="button" type="submit" value="Go Back"/>
+    </form>
+    </div>
+
+    <div class="container">
+    <div class="title">Edit Material Request</div>
+
+
+    <!-- <div>
+        <form action="/<%=//guild%>/characters/<%=//singleChar._id %>/matReq?_method=PUT" method="post">
+            <input type="text" placeholder="Gem Color" name="gemColor_1" value="">
+            <input type="number" name="gemAmt_1" value="0">
+            <input type="text" placeholder="Gem Color" name="gemColor_2" value="">
+            <input type="number" name="gemAmt_2" value="0">
+            <label for="sunmoteAmt">Sunmotes:</label>
+            <input type="number" name="sunmoteAmt" value="0">
+            <button type="submit" >Submit</button>
+    </div> -->
+
+    <div class="matReqForm">
+        <form action="/<%=guild%>/characters/<%=singleChar._id%>/matReq?_method=PUT" method="post" class="form-style-7">
+            <ul>
+            <li>
+                <label for="gemColor_1">Gem color</label>
+                <input type="text" placeholder="Gem Color" name="gemColor_1" value="" maxlength="100">
+                <span>Enter color of gem here</span>
+            </li>
+            <li>
+                <label for="gemAmt_1">Gem Amount</label>
+                <input type="number" name="gemAmt_1" value="0" maxlength="100">
+                <span>How many of these do you need?</span>
+            </li>
+            <li>
+                <label for="gemColor_2">Gem color</label>
+                <input type="text" placeholder="Gem Color" name="gemColor_2" value="" maxlength="100">
+                <span>Enter color of other gem here (if needed)</span>
+            </li>
+            <li>
+                <label for="gemAmt_2">Gem Amount</label>
+                <input type="number" name="gemAmt_2" value="0" maxlength="100">
+                <span>How many of these do you need?</span>
+            </li>
+            <li>
+                <label for="sunmoteAmt">Sunmotes</label>
+                <input type="number" name="sunmoteAmt" value="0"  maxlength="100">
+                <span>How many sunmotes do you need?</span>
+            </li>
+            <li>
+                <label for="sunmoteUse">Gem color</label>
+                <input type="text" placeholder="Sunmote Item" name="sunmoteUse" value="" maxlength="100">
+                <span>What do you need the sunmotes for?</span>
+            </li>
+            <li>
+                <input type="submit" value="Submit" >
+            </li>
+            </ul>
+            </form>
+    </div>
+
+</div>
+
+</body>
+</html>

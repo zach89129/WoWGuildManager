@@ -8,10 +8,8 @@ const ItemSchema = new Schema(
     name: String,
     link: String,
     boss: String,
-    type: {
-        slot: String,
-        material: String,
-    },
+    slot: String,
+    material: String,
     priority: {
         type: Number,
         min: [1, 'That"s not an option!'],
@@ -27,7 +25,8 @@ const MaterialSchema = new Schema(
     gemAmt_1: Number,
     gemColor_2: String,
     gemAmt_2: Number,
-    sunmoteAmt: Number
+    sunmoteAmt: Number,
+    sunmoteUse: String
   }
 );
 
@@ -47,9 +46,9 @@ const CharacterSchema = new Schema(
       ref: 'User',
       required: false
     },
+    guild: ""
   }
 );
-
 
 
 const Character = mongoose.model("Character", CharacterSchema);

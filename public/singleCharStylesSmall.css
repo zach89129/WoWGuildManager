@@ -1,0 +1,271 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: space-between;
+    font-family: 'Joan', serif;
+    width: 100%;
+    height: 100%;
+         
+        /*source: i am not englishman // stackoverflow */
+        /* Background image is centered vertically and horizontally at all times */
+        background-position: center center;
+
+        /* Background image doesn't tile */
+        background-repeat: no-repeat;
+
+        /* Background image is fixed in the viewport so that it doesn't move when 
+        the content's height is greater than the image's height */
+        background-attachment: fixed;
+
+        /* This is what makes the background image rescale based
+        on the container's size */
+        background-size: cover;
+
+        /* Location of the image */
+        background-image:url('https://wallpaperaccess.com/full/2796640.jpg') ;
+
+    /* padding-left: 45px; */
+
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: auto;
+    }
+    
+    ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: rgba(20, 28, 6, 0.37);  
+    border-radius: 10px;
+    }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.goBackButton {
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgba(247, 216, 170, 0);
+    font-size: 15px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border: none;
+}
+
+.goBackButton:hover {
+    background-color: rgba(0, 0, 0, 0.467);
+    color: antiquewhite;
+}
+
+
+.deleteInput {
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgba(247, 216, 170, 0);
+    font-size: 15px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border: none;
+}
+
+.deleteInput:hover {
+    background-color: rgba(0, 0, 0, 0.467);
+    color: antiquewhite;
+}
+
+.buttons button{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgba(247, 216, 170, 0);
+    font-size: 15px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border: none;
+}
+
+.buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.467);
+    color: antiquewhite;
+}
+
+.charDemosContainer {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    align-content: center;
+    /* padding-top: 25px; */
+    padding-bottom: 60px;
+}
+
+
+.charName {
+    font-size: 100px;
+    font-family: 'Stoke', serif;
+    margin: none;
+    padding: none; 
+}
+.charClass {
+    font-size: 20px;
+}
+
+.wholeCharContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    max-height: 550px;
+}
+
+.profContainer {
+    display: flex;
+    flex-direction:column;
+    min-width: 30vw;
+    max-width: 30vw;
+    overflow: auto;
+    /* align-items: center; */
+}
+
+.profTitle {
+    font-size: 25px;
+    text-decoration: underline 2px;
+    text-align: center;
+    font-family: 'Stoke', serif;
+}
+
+.professions {
+    font-size: 35px;
+    padding-left: 8px;
+    padding-top: 0px;
+    text-decoration: underline;
+    font-family: 'Crimson Text', serif;
+}
+.recipeBox {
+    padding-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 10px;
+}
+
+.recipesTitle {
+    font-size: 20px;
+    font-family: 'Crimson Text', serif;
+}
+
+.recipes {
+    font-size: 12px;
+    margin: none;
+    font-family: 'Crimson Text', serif;
+}
+
+.recipeUl {
+    margin: none;
+    padding: none;
+}
+
+ul {
+    margin: 2px;
+    font-family: 'Crimson Text', serif;
+}
+
+ul .itemList {
+    padding-bottom: 5px;
+}
+
+/* .lootAndMats {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+} */
+
+.lootContainer {
+
+    min-width: 30vw;
+    max-width: 30vw;
+    align-content: center;
+    overflow: auto;
+}
+
+.lootContainer button{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgba(247, 216, 170, 0);
+    font-size: 15px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border: none;
+}
+
+.lootContainer button:hover {
+    background-color: rgba(0, 0, 0, 0.467);
+    color: antiquewhite;
+}
+
+
+
+.itemList li {
+    font-size: 12px;
+}
+
+.itemList a{
+    /* text-decoration: none; */
+    color: black;
+    /* text-shadow: 2px 2px 4px black; */
+    transition: color 0.5s ease-out 10ms
+}
+
+.itemList a:hover {
+    text-shadow: 2px 2px 4px black;
+}
+
+.editWishlistButton {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.wishListTitle {
+    font-size: 25px;
+    text-decoration: underline 2px;
+    text-align: center;
+    font-family: 'Stoke', serif;
+}
+
+.matReqTitle {
+    font-size: 25px;
+    text-decoration: underline 2px;
+    text-align: center;
+    font-family: 'Stoke', serif;
+}
+
+.mats {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
+}
+
+.matReqContainer{
+    display: flex;
+    flex-direction: column;
+    min-width: 30vw;
+    max-width: 30vw;
+    overflow: auto;
+}
+.editMatButton{
+    text-align: center;
+}
+
+.editMatButton button {
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgba(247, 216, 170, 0);
+    font-size: 15px;
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    border: none;
+
+}
+
+.editMatButton button:hover {
+    background-color: rgba(0, 0, 0, 0.467);
+    color: antiquewhite;
+} 

@@ -4,60 +4,126 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/singleCharStyles.css">
+    <link rel="stylesheet" media="screen and (max-width: 900px)" href="/singleCharStylesSmall.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Joan&family=Stoke&display=swap" rel="stylesheet">
     <title><%= singleChar.name  %> </title>
 </head>
 
 <body>
-    <form action="http://localhost:3000/guild/">
-        <input type="submit" value="Go Back"/>
+    <div class="buttons">
+    <div class="goBack">
+    <form action="http://localhost:3000/<%=guild%>/characters">
+        <input class="goBackButton"type="submit" value="Go Back"/>
     </form>
-    <div>
-        <div><h1><%= singleChar.name  %> </h1></div>
-        <br>
-        <div><h5><%= singleChar.class %> </h5></div>
-        <br>
-        <div><h5><%= singleChar.specialization %> </h5></div>
-        <br>
-        <div><h3>Professions</h3></div>
-        <div><h5><%= singleChar.profession_1 %> </h5></div>
-                <div><h3>Recipes:</h3></div>
+    </div>
+
+    <div class="editButton">
+    <% if(deletable){ %> 
+        <a href="/<%=guild%>/characters/<%= singleChar._id %>/edit"><button>Edit Character!</button></a>
+        <% } %> 
+    </div>
+
+
+    <div class="deleteButton">
+
+        <% if(deletable){ %> 
+            <form action="/<%=guild%>/characters/<%= singleChar._id %>?_method=DELETE" method="POST">
+                <input class="deleteInput" type="submit" value="Delete Character"/>
+            </form>
+        <% } %> 
+    </div>
+
+    </div>
+
+
+    <div class="charDemosContainer">
+        <div class="charName"><%= capitalize(singleChar.name) %> </div>
+         <div class="charClass"><%= capitalize(singleChar.class) %> // <%= capitalize(singleChar.specialization) %></div>
+    </div>
+
+
+    <div class="wholeCharContainer">
+
+    
+    <div class="profContainer">
+        <div class="profTitle">Professions</div>
+        <div class="professions"><%= capitalize(singleChar.profession_1) %></div>
+            <div class="recipeBox">
+                <div class="recipesTitle">Recipes:</div>
                 <div>
                     <% singleChar.recipe_1.forEach((recipe) => { %> 
                     <ul>
-                        <li><%= recipe %> </li>
+                        <li class="recipes"><%= capitalize(recipe) %> </li>
                     </ul>
                     <% }) %> 
                 </div>
-        <div><h5><%= singleChar.profession_2 %> </h5></div>
-                <div><h3>Recipes:</h3></div>
-                <div>
+            </div>
+        <div class="professions"><%= capitalize(singleChar.profession_2) %> </div>
+            <div class="recipeBox">
+                <div class="recipesTitle">Recipes:</div>
+                <div class="recipeUl">
                     
                     <% singleChar.recipe_2.forEach((recipe)=>{ %> 
                     <ul>    
-                        <li><%= recipe %> </li>
+                        <li class="recipes"><%= capitalize(recipe)%> </li>
                     </ul>
                     <% }) %> 
                 </div>
-
- <div>
-        <h3>Loot Wishlist</h3>
+            </div>
         
-         <% singleChar.items.forEach((item) => { %> 
-        <div>
-            <ul>
-                <li><%= item.priority %> </li>
-                <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= item.name %> </a></li>
-                <li><%= item.boss %> </li>
-                <li><%= item.type.slot %> </li>
+    </div>
+              
+    
+            <div class="lootContainer">
+            <div class="wishListTitle">Loot Wishlist</div>
+            
+             <% singleChar.items.forEach((item) => { %> 
+            <div>
+                <ul class="itemList">
+                    <li>Priority: <%= item.priority %> </li>
+                    <li><a href="<%= item.link %>" target="_blank" rel="noopener noreferrer"><%= capitalize(item.name) %> </a></li>
+                    <li><%= capitalize(item.boss) %> </li>
+                    <li><%= capitalize(item.slot) %> </li>
+                    <br>
+                </ul>
+            </div>
+            <% }) %> 
+            
+            <% if(deletable){ %> 
+                <div class="editWishlistButton"><a href="/<%=guild%>/characters/<%= singleChar._id %>/editWishlist"><button>Edit Wishlist!</button></a></div>
+                <% } %> 
                 
-            </ul>
-        </div>
-        <% }) %> 
-        </div>
-
-       
-        <a href="/characters/<%= singleChar._id %>/editWishlist"><button>Edit Wishlist!</button></a>
+            </div>
+         
+                <div class="matReqContainer">
+                    <div class="matReqTitle">Material Requests</div>
+                    <% if (singleChar.materialReq.gemAmt_1 > 0){ %> 
+                    <div class="mats"><%= capitalize(singleChar.materialReq.gemColor_1)%>: <%= singleChar.materialReq.gemAmt_1%></div>
+                    <% } %> 
+                    <% if (singleChar.materialReq.gemAmt_2 > 0){ %> 
+                    <div class="mats"><%= capitalize(singleChar.materialReq.gemColor_2) %>: <%= singleChar.materialReq.gemAmt_2 %></div>
+                    <% } %> 
+                    <% if (singleChar.materialReq.sunmoteAmt > 0){ %> 
+                    <div class="mats">Sunmotes: <%= singleChar.materialReq.sunmoteAmt %> for <%= singleChar.materialReq.sunmoteUse %></div>
+                    <% } %> 
+                    
+                    <% if(deletable){ %> 
+                       <div class="editMatButton"><a href="/<%=guild%>/characters/<%= singleChar._id %>/materialedit"><button>Material Request Edit</button></a></div>
+                        <% } %> 
+                        
+                </div>
 
     </div>
+                
+                    
+                    
+                      
+                        
+
+
+
 </body>
 </html>

@@ -1,0 +1,173 @@
+body {
+    display: flex;
+    font-family: 'Bilbo';
+    flex-direction: column;
+    align-content: space-between;
+    font-family: 'Joan', serif;
+    width: 100%;
+    height: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: rgb(20, 15, 15);
+
+    background-image:url('./images/Chron3_map_of_Outland_before_Azeroth_invasion.webp') ; 
+}
+
+.charBoxContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+}
+
+.charBox {
+    flex-direction: row;
+    background-image: url("./images/Untitled.png");
+    height: 455px;
+    min-width: 350px;
+    max-width: 350px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    
+}
+
+.charInfoContainer {
+    margin: 65px 45px 80px 50px;
+    overflow: auto;
+    max-height: 330px;
+    max-width: auto;
+
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: auto;
+    }
+    
+    ::-webkit-scrollbar-track {
+    border: none;
+    border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+    background: rgba(20, 28, 6, 0.37);  
+    border-radius: 10px;
+    }
+/* separate lines on sheet */
+
+.name {
+    font-size: 45px;
+    text-align: center;
+    padding-bottom: none;
+    
+}
+
+.name a{
+    text-decoration: none;
+    color: black;
+    /* text-shadow: 2px 2px 4px black; */
+    transition: color 0.5s ease-out 10ms
+}
+
+.name a:hover {
+    text-shadow: 2px 2px 4px black;
+}
+
+
+.class {
+    padding-top: none;
+    font-size: 24px;
+    text-decoration: solid;
+}
+
+.spec {
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+}
+
+.profTitle {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+.prof {
+    font-size: 15px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.items {
+    font-size: 20px;
+    padding-top: 2px;
+    padding-left: 10px;
+}
+
+.wishlist {
+    font-size: 24px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}   
+
+.bottomButtons{
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.newChar{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    /* background-color: rgb(247, 216, 170); */
+    font-size: 30px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    background-size: cover;
+    background-image:url('./images/Screen\ Shot\ 2022-06-19\ at\ 5.02.52\ PM.png') ;
+}
+
+.allMatReq{
+    font-family: 'Bilbo';
+    border-radius: 25px;
+    background-color: rgb(247, 216, 170);
+    font-size: 30px;
+    box-shadow: 0px 0px 5px rgb(0, 0, 0);
+    background-image:url('./images/Screen\ Shot\ 2022-06-19\ at\ 5.02.52\ PM.png') ;
+}
+
+.logoutDiv a{
+    color: whitesmoke;
+}
+
+.loginDiv a{
+    color: whitesmoke;
+}
+
+.photoCredit {
+    color: antiquewhite;
+    font-size: 8px;
+    position: fixed;
+    top: 98%;
+    right: 5%;
+}
+
+.googleLogin {
+    font-size: 20px;
+    border-radius: 25px;
+    font-family: 'Joan', serif;
+    background-color: rgba(255, 255, 255, 0.301);
+}
+
+.googleLogin:hover {
+    background-color: rgba(0, 0, 0, 0.64);
+    color: rgba(255, 255, 255, 0.682);
+}

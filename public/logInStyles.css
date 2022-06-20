@@ -1,0 +1,83 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Joan', serif;
+    width: 100%;
+    height: 100%;
+         
+        /*source: i am not englishman // stackoverflow */
+        /* Background image is centered vertically and horizontally at all times */
+        background-position: center center;
+
+        /* Background image doesn't tile */
+        background-repeat: no-repeat;
+
+        /* Background image is fixed in the viewport so that it doesn't move when 
+        the content's height is greater than the image's height */
+        background-attachment: fixed;
+
+        /* This is what makes the background image rescale based
+        on the container's size */
+        background-size: cover;
+
+        /* Location of the image */
+ 
+        /* background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
+        url('https://pbs.twimg.com/media/EuoAbclVcAMu-Bz?format=jpg&name=large'); */
+        background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
+        url('./images/994628.jpeg');
+
+}
+
+
+.backgroundAdjustment {
+    justify-content: center;
+}
+
+.loginPageTitle {
+    font-size: 100px;
+    padding: 5px;
+    text-align: center;
+    color: rgb(254, 217, 115, 0.8);
+    text-shadow: 2px 2px 4px black
+}
+
+.privacyWarning {
+    font-size: 14px;
+    color: antiquewhite;
+    text-decoration: underline;
+    text-align: center;
+    position: fixed;
+    top: 95%;
+}
+
+
+
+.loginButton {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+
+}
+
+a {
+    font-size: 40px;
+    text-align: center; 
+    position: fixed;
+    top: 50%;
+     
+}
+
+.googleLogin {
+    font-size: 40px;
+    border-radius: 25px;
+    font-family: 'Joan', serif;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.googleLogin:hover {
+    background-color: rgba(0, 0, 0, 0.64);
+    color: rgba(255, 255, 255, 0.682);
+}
