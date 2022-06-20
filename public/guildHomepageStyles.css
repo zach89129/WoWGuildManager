@@ -58,12 +58,12 @@ body {
 .name a{
     text-decoration: none;
     color: black;
-    text-shadow: 2px 2px 4px black;
+    /* text-shadow: 2px 2px 4px black; */
     transition: color 0.5s ease-out 10ms
 }
 
 .name a:hover {
-    color: #aca9a9;
+    text-shadow: 2px 2px 4px black;
 }
 
 

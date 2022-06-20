@@ -208,7 +208,6 @@ const postMatEdit = (req,res) => {
 }
 
 const loadAllMatReq = (req,res) => {
-    console.log(req)
     Character.find({guild: ` ${req.params.guildId} `})
     .then((characters)=>{
         res.render('allRequests', {guild: req.params.guildId, characters, capitalize})
