@@ -5,26 +5,10 @@ body {
     font-family: 'Joan', serif;
     width: 100%;
     height: 100%;
-         
-        /*source: i am not englishman // stackoverflow */
-        /* Background image is centered vertically and horizontally at all times */
         background-position: center center;
-
-        /* Background image doesn't tile */
         background-repeat: no-repeat;
-
-        /* Background image is fixed in the viewport so that it doesn't move when 
-        the content's height is greater than the image's height */
         background-attachment: fixed;
-
-        /* This is what makes the background image rescale based
-        on the container's size */
         background-size: cover;
-
-        /* Location of the image */
- 
-        /* background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
-        url('https://pbs.twimg.com/media/EuoAbclVcAMu-Bz?format=jpg&name=large'); */
         background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.808), rgba(117, 19, 93, 0)),
         url('./images/994628.jpeg');
 
