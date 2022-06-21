@@ -34,9 +34,16 @@ body {
     text-align: center;
     position: fixed;
     top: 95%;
+    background-color: rgba(250, 235, 215, 0.572);
 }
 
-
+.photoCredit {
+    color: antiquewhite;
+    font-size: 8px;
+    position: fixed;
+    top: 98%;
+    right: 5%;
+}
 
 .loginButton {
     display: flex;
