@@ -17,13 +17,16 @@
     <div class="container">
         <% characters.forEach((character) => { %>
             <div class="matReq">
-                <%if (character.materialReq.gemAmt_1 > 0 || character.materialReq.gemAmt_2 > 0){ %>
+                <%if (character.materialReq.gemAmt_1 > 0){ %>
                 <div><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
                 <div><%= capitalize(character.materialReq.gemColor_1)%> : <%= character.materialReq.gemAmt_1%></div>
-                <div><%= capitalize(character.materialReq.gemColor_2) %> : <%= character.materialReq.gemAmt_1%></div>
+                <% } %> 
+                <% if (character.materialReq.gemAmt_2 > 0){ %> 
+                <div><%= capitalize(character.materialReq.gemColor_2) %> : <%= character.materialReq.gemAmt_2%></div>
+                <% } %> 
+                <% if (character.materialReq.sunmoteAmt > 0){ %> 
                 <div>Sunmotes: <%= character.materialReq.sunmoteAmt %></div>
-               <% } %> 
-              
+                <% } %> 
             </div>
                 <%})%>
     </div>
