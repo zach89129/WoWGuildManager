@@ -19,7 +19,7 @@
             <% if(character.materialReq.gemAmt_1 > 0 || character.materialReq.gemAmt_2 > 0 || character.materialReq.sunmoteAmt > 0){ %> 
                 <div class="matReq" >
                     <%if (character.materialReq.gemAmt_1 > 0){ %>
-                    <div><a href="/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
+                    <div><a href="<%=guild%>/characters/<%= character._id  %> "><%= capitalize(character.name) %></a></div>
                     <div><%= capitalize(character.materialReq.gemColor_1)%> : <%= character.materialReq.gemAmt_1%></div>
                     <% } %> 
                     <% if (character.materialReq.gemAmt_2 > 0){ %> 

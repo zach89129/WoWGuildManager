@@ -215,6 +215,12 @@ const loadAllMatReq = (req,res) => {
 }
 
 
+// const searchRecipes = (req,res) => {
+//     Character.find({guild: ` ${req.params.guildId} `, recipe_1 : req.body, recipe_2 : req.body})
+//     .then((characters)=>{
+//         res.render('recipeSearch', {guild: req.params.guildId, characters, capitalize})
+//     })
+
 //grammar helpers
 let makeString = function (object) {
     if (object == null) return '';
