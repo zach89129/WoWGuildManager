@@ -171,3 +171,15 @@ body {
     background-color: rgba(0, 0, 0, 0.64);
     color: rgba(255, 255, 255, 0.682);
 }
+
+.button {
+    font-size: 20px;
+    border-radius: 25px;
+    font-family: 'Joan', serif;
+    background-color: rgba(255, 255, 255, 0.301);
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.64);
+    color: rgba(255, 255, 255, 0.682);
+}
